@@ -2,7 +2,6 @@ package com.gbz.combat.client
 
 import com.gbz.combat.client.animation.CombatAnimationManager
 import com.gbz.combat.client.config.AnimationConfigRepository
-import com.gbz.combat.client.config.ConfigHotReloadService
 import com.gbz.combat.client.matcher.WeaponAnimationResolver
 import com.gbz.combat.client.player.ClientAttackTracker
 import com.gbz.combat.client.registry.CombatCommands
@@ -24,12 +23,6 @@ object GbzCombatClient : ClientModInitializer {
         CombatCommands(repository, resolver, animationManager).register()
 
         animationManager.setDebugOverlayEnabled(initialState.config.debugOverlay)
-
-        ConfigHotReloadService(repository) { state ->
-            resolver.reload(state.matcher)
-            animationManager.onConfigReload(state)
-            animationManager.setDebugOverlayEnabled(state.config.debugOverlay)
-        }.start()
 
         LOGGER.info("Initialized GBZ client combat animation system")
     }
