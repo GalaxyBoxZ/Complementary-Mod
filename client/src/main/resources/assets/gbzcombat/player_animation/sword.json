@@ -1,0 +1,25 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.gbzcombat.sword": {
+      "animation_length": 0.30,
+      "bones": {
+        "body": {
+          "rotation": {
+            "0.0": [0, 0, 0],
+            "0.10": [0, 18, 0],
+            "0.30": [0, 0, 0]
+          }
+        },
+        "right_arm": {
+          "rotation": {
+            "0.0": [0, 0, 0],
+            "0.10": [-55, 38, 8],
+            "0.16": [10, -24, 0],
+            "0.30": [0, 0, 0]
+          }
+        }
+      }
+    }
+  }
+}

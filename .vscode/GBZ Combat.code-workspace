@@ -1,0 +1,12 @@
+{
+	"folders": [
+		{
+			"name": "Local",
+			"path": "../"
+		},
+		{
+			"name": "GitHub",
+			"uri": "vscode-vfs://github/Hiramachi1/GBZ-Combat"
+		}
+	]
+}

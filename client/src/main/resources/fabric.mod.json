@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "id": "gbzcombat",
+  "version": "${version}",
+  "name": "GBZ Combat Client",
+  "description": "Visual-only synchronized combat animations for mixed-mod multiplayer servers.",
+  "authors": [
+    "OpenAI"
+  ],
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "com.gbz.combat.client.GbzCombatClient"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=0.16.10",
+    "minecraft": "~1.21.1",
+    "java": ">=21",
+    "fabric-api": "*",
+    "playeranimator": "*"
+  }
+}
