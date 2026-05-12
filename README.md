@@ -5,12 +5,12 @@
 Standalone client-side combat animation mod for Fabric. It is inspired by Better Combat's presentation style, but it is not an addon and it does not alter combat logic, cooldown rules, hit detection, damage, packets, or server behavior.
 
   <a href="">![Minecraft 1.21.4 ~ 1.21.11](https://img.shields.io/badge/Minecraft-1.21.4_~_1.21.11-4caf50)</a>
-  <a href="">![Environment: Client](https://img.shields.io/badge/environment-Client-1976d2)</a>
+  <a href="">![Environment: Client](https://img.shields.io/badge/Environment-Client-1976d2)</a>
   
   <a href="">![Java 21](https://img.shields.io/badge/Java-21-ee9258?logo=coffeescript&logoColor=ee9258)</a>
   <a href="">![PlayerAnimator](https://img.shields.io/badge/PlayerAnimator-c2185b)</a>
   
-  <a href="">[![Discord](https://img.shields.io/discord/816385202711560203.svg?label=&logo=discord&logoColor=ffffff&color=7389D8)](https://discord.gg/KN9b3pjFTM)</a>
+  <a href="">[![Discord Server](https://img.shields.io/discord/816385202711560203.svg?label=&logo=discord&logoColor=ffffff&color=7389D8)](https://discord.gg/KN9b3pjFTM)</a>
 
 </div>
 
