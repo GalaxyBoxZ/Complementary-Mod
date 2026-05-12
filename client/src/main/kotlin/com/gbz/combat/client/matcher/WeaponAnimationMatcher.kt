@@ -42,29 +42,29 @@ class WeaponAnimationMatcher private constructor(
 
             for (entry in config.mappings) {
                 val type = WeaponAnimationType.fromId(entry.animation) ?: continue
-                val pattern = entry.match.trim()
-                when {
-                    pattern.isEmpty() -> Unit
-                    pattern.indexOf('*') == -1 -> exact[pattern] = type
-                    pattern.endsWith("*") && pattern.count { it == '*' } == 1 -> {
-                        prefixes += CompiledPrefixRule(pattern, pattern.dropLast(1), type)
-                    }
-                    else -> {
-                        val regex = buildString(pattern.length * 2) {
-                            append('^')
-                            pattern.forEach { ch ->
-                                when (ch) {
-                                    '*' -> append(".*")
-                                    '.', '(', ')', '[', ']', '{', '}', '+', '?', '^', '$', '|', '\\' -> {
-                                        append('\\')
-                                        append(ch)
+                for (pattern in entry.match.map { it.trim() }.filter { it.isNotEmpty() }) {
+                    when {
+                        pattern.indexOf('*') == -1 -> exact[pattern] = type
+                        pattern.endsWith("*") && pattern.count { it == '*' } == 1 -> {
+                            prefixes += CompiledPrefixRule(pattern, pattern.dropLast(1), type)
+                        }
+                        else -> {
+                            val regex = buildString(pattern.length * 2) {
+                                append('^')
+                                pattern.forEach { ch ->
+                                    when (ch) {
+                                        '*' -> append(".*")
+                                        '.', '(', ')', '[', ']', '{', '}', '+', '?', '^', '$', '|', '\\' -> {
+                                            append('\\')
+                                            append(ch)
+                                        }
+                                        else -> append(ch)
                                     }
-                                    else -> append(ch)
                                 }
-                            }
-                            append('$')
-                        }.toRegex()
-                        wildcards += CompiledWildcardRule(pattern, regex, type)
+                                append('$')
+                            }.toRegex()
+                            wildcards += CompiledWildcardRule(pattern, regex, type)
+                        }
                     }
                 }
             }

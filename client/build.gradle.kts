@@ -3,13 +3,29 @@ plugins {
     kotlin("jvm") version "2.1.20"
 }
 
+val mod_id: String by project
+val mod_version: String by project
+val mod_name: String by project
+val minecraft_version: String by project
+val yarn_mappings: String by project
+val loader_version: String by project
+val fabric_api_version: String by project
+val fabric_kotlin_version: String by project
+val player_anim_version: String by project
+
+repositories {
+    mavenCentral()
+    maven("https://maven.fabricmc.net/")
+    maven("https://maven.kosmx.dev/")
+}
+
 base {
-    archivesName.set("${property("mod_id")}-client")
+    archivesName.set("$mod_id-client")
 }
 
 loom {
     mods {
-        create(property("mod_id") as String) {
+        create(mod_id) {
             sourceSet(sourceSets.main.get())
         }
     }
@@ -24,32 +40,32 @@ java {
 
 sourceSets {
     main {
-        java.srcDirs("src/main/kotlin")
-        resources.srcDir("src/main/resources")
+        java.setSrcDirs(listOf("src/main/kotlin"))
+        resources.setSrcDirs(listOf("src/main/resources"))
     }
 }
 
 dependencies {
-    minecraft("com.mojang:minecraft:${property("minecraft_version")}")
-    mappings("net.fabricmc:yarn:${property("yarn_mappings")}:v2")
-    modImplementation("net.fabricmc:fabric-loader:${property("loader_version")}")
-    modImplementation("net.fabricmc.fabric-api:fabric-api:${property("fabric_api_version")}")
-    modImplementation("net.fabricmc:fabric-language-kotlin:${property("fabric_kotlin_version")}")
+    minecraft("com.mojang:minecraft:$minecraft_version")
+    mappings("net.fabricmc:yarn:$yarn_mappings:v2")
+    modImplementation("net.fabricmc:fabric-loader:$loader_version")
+    modImplementation("net.fabricmc.fabric-api:fabric-api:$fabric_api_version")
+    modImplementation("net.fabricmc:fabric-language-kotlin:$fabric_kotlin_version")
 
-    include(modImplementation("dev.kosmx.player-anim:player-animation-lib-fabric:${property("player_anim_version")}")!!)
+    include(modImplementation("dev.kosmx.player-anim:player-animation-lib-fabric:$player_anim_version")!!)
 }
 
 tasks.withType<ProcessResources>().configureEach {
-    inputs.property("version", property("mod_version"))
-    inputs.property("minecraft_version", property("minecraft_version"))
+    inputs.property("version", mod_version)
+    inputs.property("minecraft_version", minecraft_version)
 
     filesMatching("fabric.mod.json") {
         expand(
             mapOf(
-                "version" to property("mod_version"),
-                "minecraft_version" to property("minecraft_version"),
-                "mod_id" to property("mod_id"),
-                "mod_name" to property("mod_name")
+                "version" to mod_version,
+                "minecraft_version" to minecraft_version,
+                "mod_id" to mod_id,
+                "mod_name" to mod_name
             )
         )
     }
