@@ -4,13 +4,13 @@
 
 Visual-only synchronized combat animations for mixed Paper/Fabric multiplayer.
 
-<p>
-  <img src="https://img.shields.io/badge/Minecraft-1.21.1-4caf50?style=flat-square" alt="Minecraft 1.21.1" />
-  <img src="https://img.shields.io/badge/Java-21-f89820?style=flat-square" alt="Java 21" />
-  <img src="https://img.shields.io/badge/Platform-Paper%20%2B%20Fabric-1976d2?style=flat-square" alt="Paper and Fabric" />
-  <img src="https://img.shields.io/badge/Networking-PacketEvents%20%2B%20Custom%20Payload-5c6bc0?style=flat-square" alt="PacketEvents and Custom Payload" />
-  <img src="https://img.shields.io/badge/Animation-PlayerAnimator-c2185b?style=flat-square" alt="PlayerAnimator" />
-</p>
+  <a href="">![Minecraft 1.21.4](https://img.shields.io/badge/Minecraft-1.21.4-4caf50?style=flat-square)</a>
+  <a href="">![Java 21](https://img.shields.io/badge/Java%2021-ee9258?logo=coffeescript&logoColor=ffffff&labelColor=606060&style=flat-square)</a>
+  
+  <a href="">![Platform: Fabric Client](https://img.shields.io/badge/platform-Fabric%20Client-1976d2?style=flat-square)</a>
+  <a href="">![PlayerAnimator](https://img.shields.io/badge/Animation-PlayerAnimator-c2185b?style=flat-square)</a>
+  
+  <a href="">[![Discord](https://img.shields.io/discord/816385202711560203.svg?label=&logo=discord&logoColor=ffffff&color=7389D8&labelColor=6A7EC2&style=flat-square)](https://discord.gg/KN9b3pjFTM)</a>
 
 </div>
 
