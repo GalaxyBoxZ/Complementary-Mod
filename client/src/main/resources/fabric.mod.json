@@ -5,12 +5,18 @@
   "name": "${mod_name}",
   "description": "Standalone client-only weapon combat animations driven by item model ids.",
   "authors": [
-    "OpenAI Codex"
+    "Hiramachi"
   ],
   "environment": "client",
+  "languageAdapters": {
+    "kotlin": "net.fabricmc.language.kotlin.KotlinAdapter"
+  },
   "entrypoints": {
     "client": [
-      "com.gbz.combat.client.GbzCombatClient"
+      {
+        "adapter": "kotlin",
+        "value": "com.gbz.combat.client.GbzCombatClient"
+      }
     ]
   },
   "depends": {
