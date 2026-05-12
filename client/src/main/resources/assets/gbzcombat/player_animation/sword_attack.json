@@ -1,0 +1,18 @@
+{
+  "name": "sword_attack",
+  "description": "Standard slash",
+  "emote": {
+    "isLoop": "false",
+    "returnTick": 2,
+    "beginTick": 0,
+    "endTick": 10,
+    "stopTick": 12,
+    "degrees": false,
+    "moves": [
+      { "tick": 0, "easing": "LINEAR", "rightArm": { "pitch": -0.35, "yaw": -0.12 }, "torso": { "yaw": 0.0 } },
+      { "tick": 4, "easing": "EASEINQUAD", "rightArm": { "pitch": -1.75, "yaw": -0.4, "roll": 0.18 }, "torso": { "yaw": -0.28 } },
+      { "tick": 7, "easing": "EASEOUTQUAD", "rightArm": { "pitch": -0.7, "yaw": 0.45, "roll": -0.12 }, "torso": { "yaw": 0.22 } },
+      { "tick": 10, "easing": "EASEINQUAD", "rightArm": { "pitch": -0.18, "yaw": 0.0, "roll": 0.0 }, "torso": { "yaw": 0.0 } }
+    ]
+  }
+}

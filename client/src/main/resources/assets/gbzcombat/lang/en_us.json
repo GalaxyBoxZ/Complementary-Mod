@@ -1,0 +1,6 @@
+{
+  "gbzcombat.command.reload": "Reloaded Combat Animation config.",
+  "gbzcombat.command.debug.on": "Combat Animation debug overlay enabled.",
+  "gbzcombat.command.debug.off": "Combat Animation debug overlay disabled.",
+  "gbzcombat.command.reload.failed": "Failed to reload Combat Animation config. Check the log."
+}

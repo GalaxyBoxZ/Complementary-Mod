@@ -1,0 +1,37 @@
+{
+  "default": "fist",
+  "debugLogging": false,
+  "debugOverlay": false,
+  "interpolationTicks": 3,
+  "globalSpeedMultiplier": 1.0,
+  "mappings": [
+    {
+      "match": "minecraft:*_pickaxe",
+      "animation": "pickaxe"
+    },
+    {
+      "match": "minecraft:*_axe",
+      "animation": "axe"
+    },
+    {
+      "match": "minecraft:*_sword",
+      "animation": "sword"
+    },
+    {
+      "match": "gbz:pickaxe/*",
+      "animation": "pickaxe"
+    },
+    {
+      "match": "gbz:weapon/cosmetic/admin",
+      "animation": "warglaive"
+    },
+    {
+      "match": "gbz:weapon/coal",
+      "animation": "sword"
+    },
+    {
+      "match": "gbz:weapon/enderstone",
+      "animation": "katana"
+    }
+  ]
+}

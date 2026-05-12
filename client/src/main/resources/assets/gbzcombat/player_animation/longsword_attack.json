@@ -1,0 +1,18 @@
+{
+  "name": "longsword_attack",
+  "description": "Wide two-handed swing",
+  "emote": {
+    "isLoop": "false",
+    "returnTick": 3,
+    "beginTick": 0,
+    "endTick": 13,
+    "stopTick": 15,
+    "degrees": false,
+    "moves": [
+      { "tick": 0, "easing": "LINEAR", "rightArm": { "pitch": -0.62, "yaw": -0.14 }, "leftArm": { "pitch": -0.48, "yaw": 0.16 }, "torso": { "yaw": -0.06 } },
+      { "tick": 5, "easing": "EASEINQUAD", "rightArm": { "pitch": -2.12, "yaw": -0.5 }, "leftArm": { "pitch": -1.36, "yaw": 0.4 }, "torso": { "yaw": -0.38, "pitch": 0.12 } },
+      { "tick": 9, "easing": "EASEOUTQUAD", "rightArm": { "pitch": -0.86, "yaw": 0.55 }, "leftArm": { "pitch": -0.54, "yaw": -0.12 }, "torso": { "yaw": 0.28, "pitch": -0.02 } },
+      { "tick": 13, "easing": "EASEINQUAD", "rightArm": { "pitch": -0.3, "yaw": 0.0 }, "leftArm": { "pitch": -0.24, "yaw": 0.08 }, "torso": { "yaw": 0.0, "pitch": 0.0 } }
+    ]
+  }
+}

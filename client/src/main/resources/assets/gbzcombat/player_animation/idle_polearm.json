@@ -1,0 +1,17 @@
+{
+  "name": "idle_polearm",
+  "description": "Polearm idle stance",
+  "emote": {
+    "isLoop": "true",
+    "returnTick": 0,
+    "beginTick": 0,
+    "endTick": 14,
+    "stopTick": 14,
+    "degrees": false,
+    "moves": [
+      { "tick": 0, "easing": "LINEAR", "torso": { "yaw": -0.04 }, "rightArm": { "pitch": -0.44, "yaw": -0.32 }, "leftArm": { "pitch": -0.38, "yaw": 0.28 } },
+      { "tick": 7, "easing": "EASEINOUTSINE", "torso": { "yaw": -0.08 }, "rightArm": { "pitch": -0.5, "yaw": -0.38 }, "leftArm": { "pitch": -0.42, "yaw": 0.34 } },
+      { "tick": 14, "easing": "EASEINOUTSINE", "torso": { "yaw": -0.04 }, "rightArm": { "pitch": -0.44, "yaw": -0.32 }, "leftArm": { "pitch": -0.38, "yaw": 0.28 } }
+    ]
+  }
+}

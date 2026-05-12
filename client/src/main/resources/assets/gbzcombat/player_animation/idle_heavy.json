@@ -1,0 +1,17 @@
+{
+  "name": "idle_heavy",
+  "description": "Heavy weapon idle stance",
+  "emote": {
+    "isLoop": "true",
+    "returnTick": 0,
+    "beginTick": 0,
+    "endTick": 14,
+    "stopTick": 14,
+    "degrees": false,
+    "moves": [
+      { "tick": 0, "easing": "LINEAR", "torso": { "pitch": 0.05 }, "rightArm": { "pitch": -0.6, "yaw": -0.18 }, "leftArm": { "pitch": -0.52, "yaw": 0.18 } },
+      { "tick": 7, "easing": "EASEINOUTSINE", "torso": { "pitch": 0.09 }, "rightArm": { "pitch": -0.68, "yaw": -0.22 }, "leftArm": { "pitch": -0.6, "yaw": 0.22 } },
+      { "tick": 14, "easing": "EASEINOUTSINE", "torso": { "pitch": 0.05 }, "rightArm": { "pitch": -0.6, "yaw": -0.18 }, "leftArm": { "pitch": -0.52, "yaw": 0.18 } }
+    ]
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "name": "greataxe_attack",
+  "description": "Massive overhead swing",
+  "emote": {
+    "isLoop": "false",
+    "returnTick": 4,
+    "beginTick": 0,
+    "endTick": 16,
+    "stopTick": 18,
+    "degrees": false,
+    "moves": [
+      { "tick": 0, "easing": "LINEAR", "rightArm": { "pitch": -0.8, "yaw": -0.12 }, "leftArm": { "pitch": -0.68, "yaw": 0.14 }, "torso": { "pitch": 0.06 } },
+      { "tick": 7, "easing": "EASEINQUAD", "rightArm": { "pitch": -2.34, "yaw": -0.32 }, "leftArm": { "pitch": -1.62, "yaw": 0.28 }, "torso": { "pitch": 0.26, "yaw": -0.16 } },
+      { "tick": 11, "easing": "EASEOUTQUAD", "rightArm": { "pitch": 0.62, "yaw": 0.08 }, "leftArm": { "pitch": 0.12, "yaw": 0.02 }, "torso": { "pitch": -0.16, "yaw": 0.1 } },
+      { "tick": 16, "easing": "EASEINQUAD", "rightArm": { "pitch": -0.32, "yaw": 0.0 }, "leftArm": { "pitch": -0.24, "yaw": 0.08 }, "torso": { "pitch": 0.0, "yaw": 0.0 } }
+    ]
+  }
+}
