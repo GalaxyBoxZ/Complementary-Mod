@@ -6,30 +6,22 @@
 Standalone client-side combat animation mod for Fabric.  
 Inspired by Better Combat's presentation style — does not alter combat logic, cooldown rules, hit detection, damage, packets, or server behavior.
 
-![Minecraft 1.21.4 ~ 1.21.11](https://img.shields.io/badge/Minecraft-1.21.4_~_1.21.11-4caf50)
-![Environment: Client](https://img.shields.io/badge/Environment-Client-1976d2)
-![Java 21](https://img.shields.io/badge/Java-21-ee9258?logo=coffeescript&logoColor=ee9258)
-![PlayerAnimator](https://img.shields.io/badge/PlayerAnimator-c2185b)
 [![Discord](https://img.shields.io/discord/816385202711560203.svg?label=Discord&logo=discord&logoColor=ffffff&color=7389D8)](https://discord.gg/KN9b3pjFTM)
-
-</div>
-
----
 
 ## Requirements
 
-| Dependency | Version |
-|---|---|
-| Minecraft | `1.21.4` – `1.21.11` |
-| Fabric Loader | `≥ 0.16.10` |
-| Fabric API | `0.119.2+1.21.4` |
-| Fabric Language Kotlin | `≥ 1.13.2+kotlin.2.1.20` |
-| PlayerAnimator | `2.0.5+1.21.4` |
-| Java | `21` |
+![Minecraft 1.21.4 ~ 1.21.11](https://img.shields.io/badge/Minecraft-1.21.4_~_1.21.11-4caf50)
+![Java 21](https://img.shields.io/badge/Java-21-ee9258?logo=coffeescript&logoColor=ee9258)
+![PlayerAnimator 2.0.5+1.21.4](https://img.shields.io/badge/PlayerAnimator-2.0.5+1.21.4-c2185b)
 
----
+![Fabric Loader ≥ 0.16.10](https://img.shields.io/badge/Fabric_Loader-≥_0.16.10-000000)
+![Fabric API 0.119.2+1.21.4](https://img.shields.io/badge/Fabric_API-0.119.2+1.21.4-000000)
+![Fabric Language Kotlin 1.13.2+kotlin.2.1.20](https://img.shields.io/badge/Fabric_Language_Kotlin-1.13.2+kotlin.2.1.20-000000)
 
-## How It Works
+</div>
+
+
+<h2 align="center">How It Works</h2>
 
 The mod reads the item model id of the player's held item every tick and maps it to a weapon animation category. Two animation layers run per player:
 
@@ -38,9 +30,8 @@ The mod reads the item model id of the player's held item every tick and maps it
 
 Playback speed is dynamic — derived from `ATTACK_SPEED`, synchronized against vanilla cooldown timing (`20 / attackSpeed`), then scaled by a per-category multiplier. This keeps daggers fast and greataxes slow without hardcoded durations.
 
----
 
-## Adding Weapon Mappings
+<h2 align="center">Adding Weapon Mappings</h2>
 
 Edit `client/src/main/resources/assets/gbzcombat/animations.json`.  
 This file is **bundled inside the jar** — no external config is created or read at runtime.
@@ -65,7 +56,8 @@ Each entry supports one or multiple match patterns:
 }
 ```
 
-### Match Rules
+<div align="center">
+<h3>Match Rules</h3>
 
 Patterns are matched in this priority order:
 
@@ -76,11 +68,10 @@ Patterns are matched in this priority order:
 | 3 | `minecraft:*_sword` | Full wildcard |
 | 4 | *(none)* | Default fallback |
 
-Items that fall back to default are **not cached** and re-evaluated every tick.
+Items that fall back to default are **not cached** and re-evaluated every tick.</div>
 
----
 
-## Adding Animations
+<h2 align="center">Adding Animations</h2>
 
 Place PlayerAnimator-compatible `.json` files in:
 
@@ -94,9 +85,8 @@ Then:
 2. Register a profile in `AnimationProfileRegistry.kt`
 3. Add a mapping entry in `animations.json`
 
----
 
-## Architecture
+<h2 align="center">Architecture</h2>
 
 ```
 client/src/main/kotlin/com/gbz/combat/client/
@@ -108,9 +98,8 @@ client/src/main/kotlin/com/gbz/combat/client/
 └── util/        — constants, debug overlay, helpers
 ```
 
----
 
-## Debug Overlay
+<h2 align="center">Debug Overlay</h2>
 
 Run `/combatanim debug` in-game to toggle the HUD overlay showing:
 
