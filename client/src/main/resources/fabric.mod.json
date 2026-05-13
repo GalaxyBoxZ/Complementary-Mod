@@ -4,6 +4,7 @@
   "version": "${version}",
   "name": "${mod_name}",
   "description": "Standalone client-only weapon combat animations driven by item model ids.",
+  "icon": "assets/gbzcombat/icon.png",
   "authors": [
     "Hiramachi"
   ],
