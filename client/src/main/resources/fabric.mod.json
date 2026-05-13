@@ -8,9 +8,6 @@
     "Hiramachi"
   ],
   "environment": "client",
-  "languageAdapters": {
-    "kotlin": "net.fabricmc.language.kotlin.KotlinAdapter"
-  },
   "entrypoints": {
     "client": [
       {

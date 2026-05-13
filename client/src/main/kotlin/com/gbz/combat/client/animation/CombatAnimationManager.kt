@@ -39,7 +39,6 @@ class CombatAnimationManager(
     }
 
     fun ensureIdle(player: ClientPlayerEntity, resolvedType: WeaponAnimationType, modelKey: String, matchedRule: String?, priority: String) {
-        val layers = getLayers(player) ?: return
         if (state.currentType == resolvedType && state.modelKey == modelKey) {
             return
         }
@@ -49,6 +48,7 @@ class CombatAnimationManager(
         state.matchedRule = matchedRule
         state.matchPriority = priority
 
+        val layers = getLayers(player) ?: return
         val profile = AnimationProfileRegistry.get(resolvedType)
         val idleSpeed = profile.nominalIdleSpeed * configState.config.globalSpeedMultiplier
         layers.idleSpeed.speed = idleSpeed
@@ -90,7 +90,8 @@ class CombatAnimationManager(
         }
     }
 
-    private fun getLayers(player: AbstractClientPlayerEntity): PlayerLayers? = playerLayers[player.uuid]
+    private fun getLayers(player: AbstractClientPlayerEntity): PlayerLayers? =
+        playerLayers[player.uuid] ?: if (player is ClientPlayerEntity) localPlayerLayers else null
 
     private fun createPlayer(
         animationId: Identifier,
@@ -110,20 +111,28 @@ class CombatAnimationManager(
 
     companion object {
         private val playerLayers = ConcurrentHashMap<UUID, PlayerLayers>()
+        @Volatile private var localPlayerLayers: PlayerLayers? = null
 
         fun registerPlayerLayers() {
             PlayerAnimationAccess.REGISTER_ANIMATION_EVENT.register { player, animationStack ->
-                val idleLayer = ModifierLayer<IAnimation>()
-                val attackLayer = ModifierLayer<IAnimation>()
-                val idleSpeed = SpeedModifier(1.0f)
-                val attackSpeed = SpeedModifier(1.0f)
+                try {
+                    val idleLayer = ModifierLayer<IAnimation>()
+                    val attackLayer = ModifierLayer<IAnimation>()
+                    val idleSpeed = SpeedModifier(1.0f)
+                    val attackSpeed = SpeedModifier(1.0f)
 
-                idleLayer.addModifierBefore(idleSpeed)
-                attackLayer.addModifierBefore(attackSpeed)
+                    idleLayer.addModifierBefore(idleSpeed)
+                    attackLayer.addModifierBefore(attackSpeed)
 
-                animationStack.addAnimLayer(60, idleLayer)
-                animationStack.addAnimLayer(80, attackLayer)
-                playerLayers[player.uuid] = PlayerLayers(idleLayer, attackLayer, idleSpeed, attackSpeed)
+                    animationStack.addAnimLayer(60, idleLayer)
+                    animationStack.addAnimLayer(80, attackLayer)
+
+                    val layers = PlayerLayers(idleLayer, attackLayer, idleSpeed, attackSpeed)
+                    playerLayers[player.uuid] = layers
+                    if (player is ClientPlayerEntity) localPlayerLayers = layers
+                } catch (e: Exception) {
+                    LOGGER.error("GBZ: failed to register layers for uuid={}", player.uuid, e)
+                }
             }
         }
     }

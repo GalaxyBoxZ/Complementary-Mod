@@ -19,10 +19,11 @@ class WeaponAnimationResolver(
 
     fun resolve(stack: ItemStack): Resolution {
         val modelKey = ItemModelResolver.resolveModelKey(stack)
-        return cache.computeIfAbsent(modelKey) {
-            val result = matcher.resolve(modelKey)
-            Resolution(modelKey, result.type, result.matchedRule, result.priority)
-        }
+        cache[modelKey]?.let { return it }
+        val result = matcher.resolve(modelKey)
+        val resolution = Resolution(modelKey, result.type, result.matchedRule, result.priority)
+        if (result.priority != "default") cache[modelKey] = resolution
+        return resolution
     }
 
     fun cacheSize(): Int = cache.size
