@@ -1,6 +1,6 @@
 <div align="center">
   
-<img width="2048" height="312" alt="GalaxyBoxZ" src="https://github.com/user-attachments/assets/883a4640-cacf-4516-a2dc-e8ddb8f9f909" />
+  <a href="">![GalaxyBoxZ](https://github.com/user-attachments/assets/883a4640-cacf-4516-a2dc-e8ddb8f9f909)</a>
 <h1>Combat Animations</h1>
 
 Standalone client-side combat animation mod for Fabric. It is inspired by Better Combat's presentation style, but it is not an addon and it does not alter combat logic, cooldown rules, hit detection, damage, packets, or server behavior.
