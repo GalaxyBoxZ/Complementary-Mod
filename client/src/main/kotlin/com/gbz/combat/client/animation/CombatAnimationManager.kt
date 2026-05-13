@@ -54,7 +54,7 @@ class CombatAnimationManager(
         layers.idleSpeed.speed = idleSpeed
         layers.idle.replaceAnimationWithFade(
             AbstractFadeModifier.standardFadeIn(configState.config.interpolationTicks.coerceAtLeast(1), Ease.LINEAR),
-            createPlayer(profile.idleAnimationId) ?: return
+            createPlayer(profile.idleAnimationId, firstPersonMode = FirstPersonMode.DISABLED) ?: return
         )
     }
 
@@ -96,11 +96,12 @@ class CombatAnimationManager(
     private fun createPlayer(
         animationId: Identifier,
         showLeftArm: Boolean = true,
-        showLeftItem: Boolean = false
+        showLeftItem: Boolean = false,
+        firstPersonMode: FirstPersonMode = FirstPersonMode.THIRD_PERSON_MODEL
     ): KeyframeAnimationPlayer? {
         val anim = PlayerAnimationRegistry.getAnimation(animationId) as? KeyframeAnimation ?: return null
         return KeyframeAnimationPlayer(anim)
-            .setFirstPersonMode(FirstPersonMode.THIRD_PERSON_MODEL)
+            .setFirstPersonMode(firstPersonMode)
             .setFirstPersonConfiguration(
                 FirstPersonConfiguration()
                     .setShowRightArm(true)

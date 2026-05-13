@@ -53,24 +53,6 @@ Examples:
 - `minecraft:*_pickaxe` -> `pickaxe`
 - `minecraft:*_sword` -> `sword`
 
-## Config
-
-The live config file is stored at:
-
-- `config/gbzcombat/animations.json`
-
-It is created automatically on first run and reloaded automatically when the file changes. Manual reload is also available with:
-
-- `/combatanim reload`
-
-Debug overlay toggle:
-
-- `/combatanim debug`
-
-A checked-in example copy also lives at:
-
-- `examples/animations.json`
-
 ## Animation Playback
 
 PlayerAnimator provides two layered channels per player:
