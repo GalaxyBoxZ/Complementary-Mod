@@ -1,103 +1,61 @@
 <div align="center">
   
-  <a href="">![GalaxyBoxZ](https://github.com/user-attachments/assets/883a4640-cacf-4516-a2dc-e8ddb8f9f909)</a>
+<a href="">![GalaxyBoxZ](https://github.com/user-attachments/assets/883a4640-cacf-4516-a2dc-e8ddb8f9f909)</a>
 <h1>Combat Animations</h1>
 
-Standalone client-side combat animation mod for Fabric. It is inspired by Better Combat's presentation style, but it is not an addon and it does not alter combat logic, cooldown rules, hit detection, damage, packets, or server behavior.
+Standalone client-side combat animation mod for Fabric.  
+Inspired by Better Combat's presentation style — does not alter combat logic, cooldown rules, hit detection, damage, packets, or server behavior.
 
-  <a href="">![Minecraft 1.21.4 ~ 1.21.11](https://img.shields.io/badge/Minecraft-1.21.4_~_1.21.11-4caf50)</a>
-  <a href="">![Environment: Client](https://img.shields.io/badge/Environment-Client-1976d2)</a>
-  
-  <a href="">![Java 21](https://img.shields.io/badge/Java-21-ee9258?logo=coffeescript&logoColor=ee9258)</a>
-  <a href="">![PlayerAnimator](https://img.shields.io/badge/PlayerAnimator-c2185b)</a>
-  
-  <a href="">[![Discord Server](https://img.shields.io/discord/816385202711560203.svg?label=&logo=discord&logoColor=ffffff&color=7389D8)](https://discord.gg/KN9b3pjFTM)</a>
+![Minecraft 1.21.4 ~ 1.21.11](https://img.shields.io/badge/Minecraft-1.21.4_~_1.21.11-4caf50)
+![Environment: Client](https://img.shields.io/badge/Environment-Client-1976d2)
+![Java 21](https://img.shields.io/badge/Java-21-ee9258?logo=coffeescript&logoColor=ee9258)
+![PlayerAnimator](https://img.shields.io/badge/PlayerAnimator-c2185b)
+[![Discord](https://img.shields.io/discord/816385202711560203.svg?label=Discord&logo=discord&logoColor=ffffff&color=7389D8)](https://discord.gg/KN9b3pjFTM)
 
 </div>
 
-## Version Support
+---
 
-- Compile target: Minecraft `1.21.4`
-- Intended runtime support: `1.21.4` through `1.21.11`
-- Loader strategy: stable Fabric APIs, public PlayerAnimator APIs, and item model component lookup instead of renderer internals
+## Requirements
 
-## Architecture
+| Dependency | Version |
+|---|---|
+| Minecraft | `1.21.4` – `1.21.11` |
+| Fabric Loader | `≥ 0.16.10` |
+| Fabric API | `0.119.2+1.21.4` |
+| Fabric Language Kotlin | `≥ 1.13.2+kotlin.2.1.20` |
+| PlayerAnimator | `2.0.5+1.21.4` |
+| Java | `21` |
 
-The client module is split into the requested packages:
+---
 
-- `animation`: playback, layer management, speed scaling, and animation profile metadata
-- `config`: bundled JSON config loading and defaults
-- `matcher`: exact/prefix/wildcard rule compilation, matching, and resolver cache
-- `player`: held-item model resolution and attack/tick integration
-- `registry`: animation profile registry and client commands
-- `util`: shared constants, debug overlay, and small helpers
+## How It Works
 
-## Matching System
+The mod reads the item model id of the player's held item every tick and maps it to a weapon animation category. Two animation layers run per player:
 
-The resolver reads the held `ItemStack`, then checks:
+- **Idle** — looping hold pose, blends when the weapon category changes. Disabled in first person.
+- **Attack** — high-priority layer triggered on swing, fades in and interrupts cleanly on rapid attacks.
 
-1. `DataComponentTypes.ITEM_MODEL`
-2. The registry id of the backing item as a fallback
+Playback speed is dynamic — derived from `ATTACK_SPEED`, synchronized against vanilla cooldown timing (`20 / attackSpeed`), then scaled by a per-category multiplier. This keeps daggers fast and greataxes slow without hardcoded durations.
 
-The resulting id string is matched with these rule priorities:
-
-1. exact match
-2. prefix match
-3. wildcard match
-4. default fallback
-
-Examples:
-
-- `gbz:weapon/cosmetic/admin` -> `warglaive`
-- `gbz:weapon/coal` -> `sword`
-- `gbz:weapon/enderstone` -> `katana`
-- `minecraft:*_pickaxe` -> `pickaxe`
-- `minecraft:*_sword` -> `sword`
-
-## Animation Playback
-
-PlayerAnimator provides two layered channels per player:
-
-- idle layer
-- attack layer
-
-Idle uses looping low-amplitude animations and blends when the resolved weapon category changes. Attack uses a higher-priority fading layer and interrupts cleanly when a new attack arrives before the previous one completes.
-
-Playback speed is dynamic:
-
-- based on `ATTACK_SPEED`
-- synchronized against vanilla cooldown timing using `20 / attackSpeed`
-- adjusted again by a per-weapon category speed multiplier
-- multiplied by global config speed settings
-
-This keeps daggers fast and greataxes slower without hardcoding one fixed duration.
-
-## Cache Behavior
-
-The animation resolver caches by resolved model key string:
-
-- primary key: item model component id
-- fallback key: item registry id
-
-Items that fall back to the default animation are not cached, so they are re-evaluated every tick.
-
-The cache is cleared automatically when the debug reload command is triggered manually.
-
-This keeps per-tick matching overhead low on large custom-item packs.
+---
 
 ## Adding Weapon Mappings
 
-Edit `client/src/main/resources/assets/gbzcombat/animations.json` inside the project. The file is bundled into the jar — no external config file is created or read at runtime.
+Edit `client/src/main/resources/assets/gbzcombat/animations.json`.  
+This file is **bundled inside the jar** — no external config is created or read at runtime.
 
-Each entry supports multiple match patterns:
+Each entry supports one or multiple match patterns:
 
 ```json
 {
   "default": "fist",
+  "globalSpeedMultiplier": 1.0,
+  "interpolationTicks": 3,
   "mappings": [
     {
-      "animation": "pickaxe",
-      "match": [ "minecraft:*_pickaxe", "gbz:pickaxe/*" ]
+      "animation": "sword",
+      "match": [ "minecraft:*_sword", "gbz:weapon/coal" ]
     },
     {
       "animation": "warglaive",
@@ -107,30 +65,56 @@ Each entry supports multiple match patterns:
 }
 ```
 
+### Match Rules
+
+Patterns are matched in this priority order:
+
+| Priority | Example | Description |
+|---|---|---|
+| 1 | `gbz:weapon/coal` | Exact match |
+| 2 | `gbz:weapon/*` | Prefix wildcard |
+| 3 | `minecraft:*_sword` | Full wildcard |
+| 4 | *(none)* | Default fallback |
+
+Items that fall back to default are **not cached** and re-evaluated every tick.
+
+---
+
 ## Adding Animations
 
-Animation assets live in:
+Place PlayerAnimator-compatible `.json` files in:
 
-- `client/src/main/resources/assets/gbzcombat/player_animations`
+```
+client/src/main/resources/assets/gbzcombat/player_animations/
+```
 
-The mod uses standard PlayerAnimator animation json files. To add a new one:
+Then:
 
-1. Place the file in `assets/gbzcombat/player_animations/`
-2. Register its identifier in `AnimationProfileRegistry.kt`
-3. Point a `WeaponAnimationType` profile at it
+1. Add a new entry to `WeaponAnimationType.kt`
+2. Register a profile in `AnimationProfileRegistry.kt`
+3. Add a mapping entry in `animations.json`
 
-## Forward-Compatibility Notes
+---
 
-The project is organized to make future updates cheap:
+## Architecture
 
-- compile-time Minecraft coupling is concentrated in the player integration and command/overlay bootstrap points
-- model-id resolution uses the public item component API introduced in modern 1.21
-- no renderer mixins are required for first-person because PlayerAnimator public first-person configuration is used
-- no server-side entrypoints exist
+```
+client/src/main/kotlin/com/gbz/combat/client/
+├── animation/   — playback, layers, speed scaling, animation profiles
+├── config/      — bundled JSON loading
+├── matcher/     — exact/prefix/wildcard rule compilation and resolver cache
+├── player/      — held-item model resolution, attack and tick hooks
+├── registry/    — animation profile registry, client commands
+└── util/        — constants, debug overlay, helpers
+```
 
-## Sources Used For API/Version Pinning
+---
 
-- Fabric Maven indexes for `fabric-api`, `fabric-loader`, `yarn`, and `fabric-language-kotlin`
-- PlayerAnimator README and package listings from the official repository / maven
-- Fabric API docs for `ClientPreAttackCallback`
-- Yarn docs for `DataComponentTypes.ITEM_MODEL`
+## Debug Overlay
+
+Run `/combatanim debug` in-game to toggle the HUD overlay showing:
+
+- Current weapon type and model key
+- Matched rule and priority
+- Attack speed, cooldown ticks, and playback speed
+- Resolver cache size
