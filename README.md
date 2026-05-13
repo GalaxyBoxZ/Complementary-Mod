@@ -26,7 +26,7 @@ Standalone client-side combat animation mod for Fabric. It is inspired by Better
 The client module is split into the requested packages:
 
 - `animation`: playback, layer management, speed scaling, and animation profile metadata
-- `config`: JSON config loading, defaults, hot reload, and live settings
+- `config`: bundled JSON config loading and defaults
 - `matcher`: exact/prefix/wildcard rule compilation, matching, and resolver cache
 - `player`: held-item model resolution and attack/tick integration
 - `registry`: animation profile registry and client commands
@@ -65,7 +65,7 @@ Idle uses looping low-amplitude animations and blends when the resolved weapon c
 
 Playback speed is dynamic:
 
-- based on `GENERIC_ATTACK_SPEED`
+- based on `ATTACK_SPEED`
 - synchronized against vanilla cooldown timing using `20 / attackSpeed`
 - adjusted again by a per-weapon category speed multiplier
 - multiplied by global config speed settings
@@ -79,28 +79,29 @@ The animation resolver caches by resolved model key string:
 - primary key: item model component id
 - fallback key: item registry id
 
-The cache is cleared automatically when:
+Items that fall back to the default animation are not cached, so they are re-evaluated every tick.
 
-- the config reloads
-- debug reload is triggered manually
+The cache is cleared automatically when the debug reload command is triggered manually.
 
 This keeps per-tick matching overhead low on large custom-item packs.
 
 ## Adding Weapon Mappings
 
-Edit `config/gbzcombat/animations.json`:
+Edit `client/src/main/resources/assets/gbzcombat/animations.json` inside the project. The file is bundled into the jar — no external config file is created or read at runtime.
+
+Each entry supports multiple match patterns:
 
 ```json
 {
   "default": "fist",
   "mappings": [
     {
-      "match": "minecraft:*_pickaxe",
-      "animation": "pickaxe"
+      "animation": "pickaxe",
+      "match": [ "minecraft:*_pickaxe", "gbz:pickaxe/*" ]
     },
     {
-      "match": "gbz:weapon/cosmetic/admin",
-      "animation": "warglaive"
+      "animation": "warglaive",
+      "match": [ "gbz:weapon/cosmetic/admin" ]
     }
   ]
 }
@@ -110,11 +111,11 @@ Edit `config/gbzcombat/animations.json`:
 
 Animation assets live in:
 
-- `client/src/main/resources/assets/gbzcombat/player_animation`
+- `client/src/main/resources/assets/gbzcombat/player_animations`
 
 The mod uses standard PlayerAnimator animation json files. To add a new one:
 
-1. Place the file in `assets/gbzcombat/player_animation/`
+1. Place the file in `assets/gbzcombat/player_animations/`
 2. Register its identifier in `AnimationProfileRegistry.kt`
 3. Point a `WeaponAnimationType` profile at it
 
