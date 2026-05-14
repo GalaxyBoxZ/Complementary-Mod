@@ -1,0 +1,19 @@
+{
+  "name": "attack_axe",
+  "description": "Overhead chopping swing with shoulder raise and impact land",
+  "emote": {
+    "isLoop": "false",
+    "returnTick": 3,
+    "beginTick": 0,
+    "endTick": 12,
+    "stopTick": 14,
+    "degrees": false,
+    "moves": [
+      { "tick": 0,  "easing": "LINEAR",      "rightArm": { "pitch": -0.50, "yaw": -0.12 }, "leftArm": { "pitch": -0.28, "yaw": 0.14 }, "torso": { "pitch": 0.02 } },
+      { "tick": 2,  "easing": "EASEINQUAD",  "rightArm": { "pitch": -1.20, "yaw": -0.18 }, "leftArm": { "pitch": -0.72, "yaw": 0.18 }, "torso": { "pitch": 0.10, "yaw": -0.12 } },
+      { "tick": 5,  "easing": "EASEINQUAD",  "rightArm": { "pitch": -2.38, "yaw": -0.22, "roll": 0.10 }, "leftArm": { "pitch": -1.08, "yaw": 0.22 }, "torso": { "pitch": 0.22, "yaw": -0.20 } },
+      { "tick": 9,  "easing": "EASEOUTQUAD", "rightArm": { "pitch":  0.62, "yaw":  0.12 }, "leftArm": { "pitch": -0.18 }, "torso": { "pitch": -0.06, "yaw": 0.10 } },
+      { "tick": 12, "easing": "EASEINQUAD",  "rightArm": { "pitch": -0.26, "yaw": 0.0  }, "leftArm": { "pitch": -0.16 }, "torso": { "pitch": 0.0, "yaw": 0.0 } }
+    ]
+  }
+}

@@ -23,10 +23,10 @@ class CombatCommands(
                                 resolver.reload(state.matcher)
                                 animationManager.onConfigReload(state)
                                 animationManager.setDebugOverlayEnabled(state.config.debugOverlay)
-                                context.source.sendFeedback(Text.translatable("gbzcombat.command.reload"))
+                                context.source.sendFeedback(Text.translatable("gbz.command.reload"))
                                 1
                             } catch (exception: Exception) {
-                                context.source.sendError(Text.translatable("gbzcombat.command.reload.failed"))
+                                context.source.sendError(Text.translatable("gbz.command.reload.failed"))
                                 0
                             }
                         }
@@ -37,9 +37,9 @@ class CombatCommands(
                             animationManager.setDebugOverlayEnabled(enabled)
                             context.source.sendFeedback(
                                 if (enabled) {
-                                    Text.translatable("gbzcombat.command.debug.on")
+                                    Text.translatable("gbz.command.debug.on")
                                 } else {
-                                    Text.translatable("gbzcombat.command.debug.off")
+                                    Text.translatable("gbz.command.debug.off")
                                 }
                             )
                             1

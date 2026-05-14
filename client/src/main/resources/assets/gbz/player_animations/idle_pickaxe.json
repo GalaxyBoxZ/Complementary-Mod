@@ -1,0 +1,17 @@
+{
+  "name": "idle_pickaxe",
+  "description": "Pickaxe carry stance, tool resting at side",
+  "emote": {
+    "isLoop": "true",
+    "returnTick": 0,
+    "beginTick": 0,
+    "endTick": 14,
+    "stopTick": 14,
+    "degrees": false,
+    "moves": [
+      { "tick": 0,  "easing": "LINEAR",       "torso": { "pitch": 0.02 }, "rightArm": { "pitch": -0.42, "yaw": -0.10, "roll": 0.10 }, "leftArm": { "pitch": -0.28, "yaw": 0.08 } },
+      { "tick": 7,  "easing": "EASEINOUTSINE", "torso": { "pitch": 0.05 }, "rightArm": { "pitch": -0.47, "yaw": -0.14, "roll": 0.12 }, "leftArm": { "pitch": -0.33, "yaw": 0.10 } },
+      { "tick": 14, "easing": "EASEINOUTSINE", "torso": { "pitch": 0.02 }, "rightArm": { "pitch": -0.42, "yaw": -0.10, "roll": 0.10 }, "leftArm": { "pitch": -0.28, "yaw": 0.08 } }
+    ]
+  }
+}

@@ -26,7 +26,7 @@ class DebugOverlayRenderer(
 
         val textRenderer = client.textRenderer
         val lines = arrayOf(
-            "GBZ Combat Animations",
+            "GBZ",
             "Weapon type: ${state.currentType.id}",
             "Model key: ${state.modelKey}",
             "Rule: ${state.matchedRule ?: "<default>"} (${state.matchPriority})",

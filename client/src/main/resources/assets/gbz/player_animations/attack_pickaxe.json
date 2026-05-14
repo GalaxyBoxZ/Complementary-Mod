@@ -1,0 +1,19 @@
+{
+  "name": "attack_pickaxe",
+  "description": "Overhead mining swing with progressive shoulder raise and impact",
+  "emote": {
+    "isLoop": "false",
+    "returnTick": 3,
+    "beginTick": 0,
+    "endTick": 11,
+    "stopTick": 13,
+    "degrees": false,
+    "moves": [
+      { "tick": 0,  "easing": "LINEAR",      "rightArm": { "pitch": -0.46, "yaw": -0.14 }, "leftArm": { "pitch": -0.30, "yaw": 0.14 } },
+      { "tick": 3,  "easing": "EASEINQUAD",  "rightArm": { "pitch": -1.68, "yaw": -0.28, "roll": 0.16 }, "leftArm": { "pitch": -0.84, "yaw": 0.22 }, "torso": { "yaw": -0.18, "pitch": 0.10 } },
+      { "tick": 6,  "easing": "EASEOUTQUAD", "rightArm": { "pitch": -2.12, "yaw": -0.36, "roll": 0.22 }, "leftArm": { "pitch": -1.14, "yaw": 0.26 }, "torso": { "yaw": -0.24, "pitch": 0.14 } },
+      { "tick": 9,  "easing": "EASEOUTQUAD", "rightArm": { "pitch":  0.52, "yaw":  0.10, "roll": -0.10 }, "leftArm": { "pitch": -0.12, "yaw": 0.06 }, "torso": { "yaw": 0.10, "pitch": -0.02 } },
+      { "tick": 11, "easing": "EASEINQUAD",  "rightArm": { "pitch": -0.24, "yaw": 0.0  }, "leftArm": { "pitch": -0.18, "yaw": 0.08 }, "torso": { "yaw": 0.0, "pitch": 0.0 } }
+    ]
+  }
+}

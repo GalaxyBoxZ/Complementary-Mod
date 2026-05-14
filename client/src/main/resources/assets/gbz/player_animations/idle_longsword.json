@@ -1,0 +1,17 @@
+{
+  "name": "idle_longsword",
+  "description": "Two-handed high guard",
+  "emote": {
+    "isLoop": "true",
+    "returnTick": 0,
+    "beginTick": 0,
+    "endTick": 18,
+    "stopTick": 18,
+    "degrees": false,
+    "moves": [
+      { "tick": 0,  "easing": "LINEAR",       "torso": { "pitch": 0.04, "yaw": -0.06 }, "rightArm": { "pitch": -0.78, "yaw": -0.22 }, "leftArm": { "pitch": -0.68, "yaw": 0.22 } },
+      { "tick": 9,  "easing": "EASEINOUTSINE", "torso": { "pitch": 0.08, "yaw": -0.08 }, "rightArm": { "pitch": -0.85, "yaw": -0.26 }, "leftArm": { "pitch": -0.75, "yaw": 0.26 } },
+      { "tick": 18, "easing": "EASEINOUTSINE", "torso": { "pitch": 0.04, "yaw": -0.06 }, "rightArm": { "pitch": -0.78, "yaw": -0.22 }, "leftArm": { "pitch": -0.68, "yaw": 0.22 } }
+    ]
+  }
+}

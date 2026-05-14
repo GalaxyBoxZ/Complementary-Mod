@@ -1,0 +1,19 @@
+{
+  "name": "attack_scythe",
+  "description": "Wide curved sweep with progressive arc and full-body rotation",
+  "emote": {
+    "isLoop": "false",
+    "returnTick": 3,
+    "beginTick": 0,
+    "endTick": 14,
+    "stopTick": 16,
+    "degrees": false,
+    "moves": [
+      { "tick": 0,  "easing": "LINEAR",      "rightArm": { "pitch": -0.56, "yaw": -0.30 }, "leftArm": { "pitch": -0.44, "yaw": 0.26 }, "torso": { "yaw": -0.12 } },
+      { "tick": 3,  "easing": "EASEINQUAD",  "rightArm": { "pitch": -1.10, "yaw": -0.52, "roll": 0.14 }, "leftArm": { "pitch": -0.92, "yaw": 0.42 }, "torso": { "yaw": -0.32 } },
+      { "tick": 6,  "easing": "EASEINQUAD",  "rightArm": { "pitch": -1.98, "yaw": -0.66, "roll": 0.28 }, "leftArm": { "pitch": -1.28, "yaw": 0.54 }, "torso": { "yaw": -0.54, "pitch": 0.06 } },
+      { "tick": 10, "easing": "EASEOUTQUAD", "rightArm": { "pitch": -0.88, "yaw": 0.72, "roll": -0.28 }, "leftArm": { "pitch": -0.44, "yaw": -0.26 }, "torso": { "yaw": 0.50, "pitch": -0.02 } },
+      { "tick": 14, "easing": "EASEINQUAD",  "rightArm": { "pitch": -0.28, "yaw": -0.04 }, "leftArm": { "pitch": -0.22, "yaw": 0.18 }, "torso": { "yaw": 0.0, "pitch": 0.0 } }
+    ]
+  }
+}

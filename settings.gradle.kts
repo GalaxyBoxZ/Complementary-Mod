@@ -7,5 +7,5 @@ pluginManagement {
 }
 
 
-rootProject.name = "gbz-combat"
+rootProject.name = "gbz"
 include("client")

@@ -1,0 +1,20 @@
+{
+  "name": "attack_longsword",
+  "description": "Wide two-handed arc with staged wind-up and extended follow-through",
+  "emote": {
+    "isLoop": "false",
+    "returnTick": 4,
+    "beginTick": 0,
+    "endTick": 15,
+    "stopTick": 17,
+    "degrees": false,
+    "moves": [
+      { "tick": 0,  "easing": "LINEAR",      "rightArm": { "pitch": -0.64, "yaw": -0.16 }, "leftArm": { "pitch": -0.50, "yaw": 0.18 }, "torso": { "yaw": -0.08, "pitch": 0.0 } },
+      { "tick": 3,  "easing": "EASEINQUAD",  "rightArm": { "pitch": -1.24, "yaw": -0.36 }, "leftArm": { "pitch": -1.02, "yaw": 0.32 }, "torso": { "yaw": -0.28, "pitch": 0.08 } },
+      { "tick": 6,  "easing": "EASEINQUAD",  "rightArm": { "pitch": -2.20, "yaw": -0.54, "roll": 0.08 }, "leftArm": { "pitch": -1.48, "yaw": 0.44 }, "torso": { "yaw": -0.42, "pitch": 0.14 } },
+      { "tick": 9,  "easing": "EASEOUTQUAD", "rightArm": { "pitch": -0.96, "yaw": 0.52 }, "leftArm": { "pitch": -0.62, "yaw": -0.14 }, "torso": { "yaw": 0.30, "pitch": 0.02 } },
+      { "tick": 12, "easing": "EASEOUTQUAD", "rightArm": { "pitch": -0.46, "yaw": 0.20 }, "leftArm": { "pitch": -0.34, "yaw": 0.04 }, "torso": { "yaw": 0.12, "pitch": 0.0 } },
+      { "tick": 15, "easing": "EASEINQUAD",  "rightArm": { "pitch": -0.30, "yaw": 0.0  }, "leftArm": { "pitch": -0.26, "yaw": 0.10 }, "torso": { "yaw": 0.0, "pitch": 0.0 } }
+    ]
+  }
+}

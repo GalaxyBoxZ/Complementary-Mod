@@ -1,0 +1,17 @@
+{
+  "name": "idle_greataxe",
+  "description": "Greataxe grounded heavy stance, slow breathing",
+  "emote": {
+    "isLoop": "true",
+    "returnTick": 0,
+    "beginTick": 0,
+    "endTick": 24,
+    "stopTick": 24,
+    "degrees": false,
+    "moves": [
+      { "tick": 0,  "easing": "LINEAR",       "torso": { "pitch": 0.08 }, "rightArm": { "pitch": -0.70, "yaw": -0.24 }, "leftArm": { "pitch": -0.60, "yaw": 0.24 } },
+      { "tick": 12, "easing": "EASEINOUTSINE", "torso": { "pitch": 0.14 }, "rightArm": { "pitch": -0.80, "yaw": -0.28 }, "leftArm": { "pitch": -0.70, "yaw": 0.28 } },
+      { "tick": 24, "easing": "EASEINOUTSINE", "torso": { "pitch": 0.08 }, "rightArm": { "pitch": -0.70, "yaw": -0.24 }, "leftArm": { "pitch": -0.60, "yaw": 0.24 } }
+    ]
+  }
+}

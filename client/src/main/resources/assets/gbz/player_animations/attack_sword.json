@@ -1,0 +1,19 @@
+{
+  "name": "attack_sword",
+  "description": "Standard slash with shoulder wind-up and follow-through",
+  "emote": {
+    "isLoop": "false",
+    "returnTick": 3,
+    "beginTick": 0,
+    "endTick": 11,
+    "stopTick": 13,
+    "degrees": false,
+    "moves": [
+      { "tick": 0,  "easing": "LINEAR",      "rightArm": { "pitch": -0.36, "yaw": -0.14 }, "leftArm": { "pitch": -0.18, "yaw": 0.08 }, "torso": { "yaw": 0.0, "pitch": 0.0 } },
+      { "tick": 2,  "easing": "EASEINQUAD",  "rightArm": { "pitch": -0.88, "yaw": -0.32, "roll": 0.10 }, "leftArm": { "pitch": -0.24, "yaw": 0.06 }, "torso": { "yaw": -0.22, "pitch": 0.06 } },
+      { "tick": 5,  "easing": "EASEOUTQUAD", "rightArm": { "pitch": -1.92, "yaw": -0.44, "roll": 0.22 }, "leftArm": { "pitch": -0.32, "yaw": 0.10 }, "torso": { "yaw": -0.34, "pitch": 0.08 } },
+      { "tick": 8,  "easing": "EASEOUTQUAD", "rightArm": { "pitch": -0.72, "yaw": 0.48, "roll": -0.14 }, "leftArm": { "pitch": -0.22, "yaw": 0.06 }, "torso": { "yaw": 0.26, "pitch": -0.02 } },
+      { "tick": 11, "easing": "EASEINQUAD",  "rightArm": { "pitch": -0.20, "yaw": 0.0  }, "leftArm": { "pitch": -0.16, "yaw": 0.06 }, "torso": { "yaw": 0.0, "pitch": 0.0 } }
+    ]
+  }
+}

@@ -1,4 +1,4 @@
 allprojects {
-    group = "com.gbz.combat"
-    version = "0.1.9+1.21.4"
+    group = "com.gbz"
+    version = "0.2.0"
 }

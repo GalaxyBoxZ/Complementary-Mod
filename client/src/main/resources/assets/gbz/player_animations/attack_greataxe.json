@@ -1,0 +1,20 @@
+{
+  "name": "attack_greataxe",
+  "description": "Massive overhead crash with staged wind-up, impact pause, and slow recovery",
+  "emote": {
+    "isLoop": "false",
+    "returnTick": 5,
+    "beginTick": 0,
+    "endTick": 18,
+    "stopTick": 20,
+    "degrees": false,
+    "moves": [
+      { "tick": 0,  "easing": "LINEAR",      "rightArm": { "pitch": -0.82, "yaw": -0.14 }, "leftArm": { "pitch": -0.70, "yaw": 0.16 }, "torso": { "pitch": 0.06 } },
+      { "tick": 3,  "easing": "EASEINQUAD",  "rightArm": { "pitch": -1.40, "yaw": -0.24 }, "leftArm": { "pitch": -1.24, "yaw": 0.24 }, "torso": { "pitch": 0.14, "yaw": -0.10 } },
+      { "tick": 7,  "easing": "EASEINQUAD",  "rightArm": { "pitch": -2.44, "yaw": -0.34 }, "leftArm": { "pitch": -1.76, "yaw": 0.30 }, "torso": { "pitch": 0.28, "yaw": -0.18 } },
+      { "tick": 11, "easing": "EASEOUTQUAD", "rightArm": { "pitch":  0.72, "yaw": 0.10  }, "leftArm": { "pitch":  0.18, "yaw": 0.04 }, "torso": { "pitch": -0.18, "yaw": 0.12 } },
+      { "tick": 14, "easing": "LINEAR",      "rightArm": { "pitch":  0.60, "yaw": 0.08  }, "leftArm": { "pitch":  0.12, "yaw": 0.04 }, "torso": { "pitch": -0.14, "yaw": 0.10 } },
+      { "tick": 18, "easing": "EASEINQUAD",  "rightArm": { "pitch": -0.34, "yaw": 0.0  }, "leftArm": { "pitch": -0.26, "yaw": 0.10 }, "torso": { "pitch": 0.0, "yaw": 0.0 } }
+    ]
+  }
+}

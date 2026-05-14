@@ -1,0 +1,17 @@
+{
+  "name": "idle_sword",
+  "description": "Classic sword mid-guard",
+  "emote": {
+    "isLoop": "true",
+    "returnTick": 0,
+    "beginTick": 0,
+    "endTick": 16,
+    "stopTick": 16,
+    "degrees": false,
+    "moves": [
+      { "tick": 0,  "easing": "LINEAR",       "torso": { "pitch": 0.02, "yaw": -0.04 }, "rightArm": { "pitch": -0.46, "yaw": -0.14 }, "leftArm": { "pitch": -0.22, "yaw": 0.10 } },
+      { "tick": 8,  "easing": "EASEINOUTSINE", "torso": { "pitch": 0.05, "yaw": -0.06 }, "rightArm": { "pitch": -0.52, "yaw": -0.18 }, "leftArm": { "pitch": -0.27, "yaw": 0.13 } },
+      { "tick": 16, "easing": "EASEINOUTSINE", "torso": { "pitch": 0.02, "yaw": -0.04 }, "rightArm": { "pitch": -0.46, "yaw": -0.14 }, "leftArm": { "pitch": -0.22, "yaw": 0.10 } }
+    ]
+  }
+}

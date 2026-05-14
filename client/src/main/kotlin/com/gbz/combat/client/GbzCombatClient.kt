@@ -24,6 +24,6 @@ object GbzCombatClient : ClientModInitializer {
 
         animationManager.setDebugOverlayEnabled(initialState.config.debugOverlay)
 
-        LOGGER.info("Initialized GBZ client combat animation system")
+        LOGGER.info("Initialized GBZ client")
     }
 }

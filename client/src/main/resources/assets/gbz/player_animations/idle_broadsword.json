@@ -1,0 +1,17 @@
+{
+  "name": "idle_broadsword",
+  "description": "Heavy broadsword low guard, wide stance",
+  "emote": {
+    "isLoop": "true",
+    "returnTick": 0,
+    "beginTick": 0,
+    "endTick": 22,
+    "stopTick": 22,
+    "degrees": false,
+    "moves": [
+      { "tick": 0,  "easing": "LINEAR",       "torso": { "pitch": 0.06 }, "rightArm": { "pitch": -0.58, "yaw": -0.28 }, "leftArm": { "pitch": -0.50, "yaw": 0.28 } },
+      { "tick": 11, "easing": "EASEINOUTSINE", "torso": { "pitch": 0.12 }, "rightArm": { "pitch": -0.66, "yaw": -0.32 }, "leftArm": { "pitch": -0.58, "yaw": 0.32 } },
+      { "tick": 22, "easing": "EASEINOUTSINE", "torso": { "pitch": 0.06 }, "rightArm": { "pitch": -0.58, "yaw": -0.28 }, "leftArm": { "pitch": -0.50, "yaw": 0.28 } }
+    ]
+  }
+}

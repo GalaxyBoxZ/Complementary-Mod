@@ -1,0 +1,19 @@
+{
+  "name": "attack_dagger",
+  "description": "Fast stab with sharp wind-up and left arm balance",
+  "emote": {
+    "isLoop": "false",
+    "returnTick": 2,
+    "beginTick": 0,
+    "endTick": 7,
+    "stopTick": 9,
+    "degrees": false,
+    "moves": [
+      { "tick": 0, "easing": "LINEAR",      "rightArm": { "pitch": -0.32, "yaw": -0.10 }, "leftArm": { "pitch": -0.28, "yaw": 0.14 }, "torso": { "pitch": 0.04, "yaw": -0.08 } },
+      { "tick": 1, "easing": "EASEINQUAD",  "rightArm": { "pitch": -0.68, "yaw": -0.20 }, "leftArm": { "pitch": -0.22, "yaw": 0.18 }, "torso": { "pitch": 0.06, "yaw": -0.14 } },
+      { "tick": 3, "easing": "EASEOUTQUAD", "rightArm": { "pitch": -2.05, "yaw": -0.06, "roll": 0.08 }, "leftArm": { "pitch": -0.18, "yaw": 0.12 }, "torso": { "pitch": 0.16, "yaw": -0.06 } },
+      { "tick": 5, "easing": "EASEINQUAD",  "rightArm": { "pitch": -1.10, "yaw": 0.08, "roll": -0.04 }, "leftArm": { "pitch": -0.26, "yaw": 0.10 }, "torso": { "pitch": 0.08, "yaw": 0.04 } },
+      { "tick": 7, "easing": "EASEINQUAD",  "rightArm": { "pitch": -0.22, "yaw": 0.0  }, "leftArm": { "pitch": -0.24, "yaw": 0.12 }, "torso": { "pitch": 0.0, "yaw": 0.0 } }
+    ]
+  }
+}

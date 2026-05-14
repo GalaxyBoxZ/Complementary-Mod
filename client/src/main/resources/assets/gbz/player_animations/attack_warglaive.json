@@ -1,0 +1,19 @@
+{
+  "name": "attack_warglaive",
+  "description": "Agile spinning polearm slash with fast build and wide torso arc",
+  "emote": {
+    "isLoop": "false",
+    "returnTick": 3,
+    "beginTick": 0,
+    "endTick": 12,
+    "stopTick": 14,
+    "degrees": false,
+    "moves": [
+      { "tick": 0,  "easing": "LINEAR",      "rightArm": { "pitch": -0.48, "yaw": -0.32 }, "leftArm": { "pitch": -0.42, "yaw": 0.30 }, "torso": { "yaw": -0.10 } },
+      { "tick": 2,  "easing": "EASEINQUAD",  "rightArm": { "pitch": -0.92, "yaw": -0.48, "roll": 0.14 }, "leftArm": { "pitch": -0.80, "yaw": 0.42 }, "torso": { "yaw": -0.28 } },
+      { "tick": 5,  "easing": "EASEINQUAD",  "rightArm": { "pitch": -1.88, "yaw": -0.62, "roll": 0.26 }, "leftArm": { "pitch": -1.18, "yaw": 0.50 }, "torso": { "yaw": -0.48 } },
+      { "tick": 8,  "easing": "EASEOUTQUAD", "rightArm": { "pitch": -0.78, "yaw": 0.82, "roll": -0.22 }, "leftArm": { "pitch": -0.50, "yaw": -0.32 }, "torso": { "yaw": 0.56 } },
+      { "tick": 12, "easing": "EASEINQUAD",  "rightArm": { "pitch": -0.20, "yaw": -0.10 }, "leftArm": { "pitch": -0.18, "yaw": 0.14 }, "torso": { "yaw": 0.0 } }
+    ]
+  }
+}

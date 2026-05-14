@@ -1,0 +1,17 @@
+{
+  "name": "idle_scythe",
+  "description": "Scythe wide asymmetric carry stance",
+  "emote": {
+    "isLoop": "true",
+    "returnTick": 0,
+    "beginTick": 0,
+    "endTick": 18,
+    "stopTick": 18,
+    "degrees": false,
+    "moves": [
+      { "tick": 0,  "easing": "LINEAR",       "torso": { "yaw": -0.10, "pitch": 0.03 }, "rightArm": { "pitch": -0.50, "yaw": -0.36, "roll": 0.10 }, "leftArm": { "pitch": -0.44, "yaw": 0.40 } },
+      { "tick": 9,  "easing": "EASEINOUTSINE", "torso": { "yaw": -0.14, "pitch": 0.07 }, "rightArm": { "pitch": -0.57, "yaw": -0.40, "roll": 0.13 }, "leftArm": { "pitch": -0.51, "yaw": 0.46 } },
+      { "tick": 18, "easing": "EASEINOUTSINE", "torso": { "yaw": -0.10, "pitch": 0.03 }, "rightArm": { "pitch": -0.50, "yaw": -0.36, "roll": 0.10 }, "leftArm": { "pitch": -0.44, "yaw": 0.40 } }
+    ]
+  }
+}

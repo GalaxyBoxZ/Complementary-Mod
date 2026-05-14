@@ -1,0 +1,17 @@
+{
+  "name": "idle_fist",
+  "description": "Raised boxing guard",
+  "emote": {
+    "isLoop": "true",
+    "returnTick": 0,
+    "beginTick": 0,
+    "endTick": 20,
+    "stopTick": 20,
+    "degrees": false,
+    "moves": [
+      { "tick": 0,  "easing": "LINEAR",       "torso": { "pitch": 0.04 }, "rightArm": { "pitch": -0.68, "yaw": -0.22 }, "leftArm": { "pitch": -0.58, "yaw": 0.20 } },
+      { "tick": 10, "easing": "EASEINOUTSINE", "torso": { "pitch": 0.08 }, "rightArm": { "pitch": -0.74, "yaw": -0.26 }, "leftArm": { "pitch": -0.64, "yaw": 0.24 } },
+      { "tick": 20, "easing": "EASEINOUTSINE", "torso": { "pitch": 0.04 }, "rightArm": { "pitch": -0.68, "yaw": -0.22 }, "leftArm": { "pitch": -0.58, "yaw": 0.20 } }
+    ]
+  }
+}

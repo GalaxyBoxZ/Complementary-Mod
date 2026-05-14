@@ -1,0 +1,17 @@
+{
+  "name": "idle_dagger",
+  "description": "Nimble forward-lean ready stance",
+  "emote": {
+    "isLoop": "true",
+    "returnTick": 0,
+    "beginTick": 0,
+    "endTick": 14,
+    "stopTick": 14,
+    "degrees": false,
+    "moves": [
+      { "tick": 0,  "easing": "LINEAR",       "torso": { "pitch": 0.06, "yaw": -0.08 }, "rightArm": { "pitch": -0.55, "yaw": -0.18, "roll": 0.06 }, "leftArm": { "pitch": -0.28, "yaw": 0.14 } },
+      { "tick": 7,  "easing": "EASEINOUTSINE", "torso": { "pitch": 0.10, "yaw": -0.12 }, "rightArm": { "pitch": -0.62, "yaw": -0.22, "roll": 0.09 }, "leftArm": { "pitch": -0.34, "yaw": 0.18 } },
+      { "tick": 14, "easing": "EASEINOUTSINE", "torso": { "pitch": 0.06, "yaw": -0.08 }, "rightArm": { "pitch": -0.55, "yaw": -0.18, "roll": 0.06 }, "leftArm": { "pitch": -0.28, "yaw": 0.14 } }
+    ]
+  }
+}

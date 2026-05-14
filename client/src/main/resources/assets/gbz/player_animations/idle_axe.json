@@ -1,0 +1,17 @@
+{
+  "name": "idle_axe",
+  "description": "One-handed axe carry, arm cocked and ready",
+  "emote": {
+    "isLoop": "true",
+    "returnTick": 0,
+    "beginTick": 0,
+    "endTick": 14,
+    "stopTick": 14,
+    "degrees": false,
+    "moves": [
+      { "tick": 0,  "easing": "LINEAR",       "torso": { "pitch": 0.02 }, "rightArm": { "pitch": -0.36, "yaw": -0.14, "roll": 0.08 }, "leftArm": { "pitch": -0.18, "yaw": 0.10 } },
+      { "tick": 7,  "easing": "EASEINOUTSINE", "torso": { "pitch": 0.05 }, "rightArm": { "pitch": -0.42, "yaw": -0.18, "roll": 0.10 }, "leftArm": { "pitch": -0.23, "yaw": 0.13 } },
+      { "tick": 14, "easing": "EASEINOUTSINE", "torso": { "pitch": 0.02 }, "rightArm": { "pitch": -0.36, "yaw": -0.14, "roll": 0.08 }, "leftArm": { "pitch": -0.18, "yaw": 0.10 } }
+    ]
+  }
+}

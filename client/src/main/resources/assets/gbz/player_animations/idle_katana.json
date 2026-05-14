@@ -1,0 +1,17 @@
+{
+  "name": "idle_katana",
+  "description": "Katana side-on guard, arm drawn close",
+  "emote": {
+    "isLoop": "true",
+    "returnTick": 0,
+    "beginTick": 0,
+    "endTick": 18,
+    "stopTick": 18,
+    "degrees": false,
+    "moves": [
+      { "tick": 0,  "easing": "LINEAR",       "torso": { "yaw": -0.18, "pitch": 0.02 }, "rightArm": { "pitch": -0.52, "yaw": 0.12, "roll": -0.08 }, "leftArm": { "pitch": -0.20, "yaw": 0.06 } },
+      { "tick": 9,  "easing": "EASEINOUTSINE", "torso": { "yaw": -0.22, "pitch": 0.05 }, "rightArm": { "pitch": -0.58, "yaw": 0.15, "roll": -0.10 }, "leftArm": { "pitch": -0.25, "yaw": 0.08 } },
+      { "tick": 18, "easing": "EASEINOUTSINE", "torso": { "yaw": -0.18, "pitch": 0.02 }, "rightArm": { "pitch": -0.52, "yaw": 0.12, "roll": -0.08 }, "leftArm": { "pitch": -0.20, "yaw": 0.06 } }
+    ]
+  }
+}

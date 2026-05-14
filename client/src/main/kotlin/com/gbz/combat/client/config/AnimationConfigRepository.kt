@@ -12,7 +12,7 @@ class AnimationConfigRepository {
 
     private fun load(): ConfigState {
         val stream = AnimationConfigRepository::class.java.classLoader
-            .getResourceAsStream("assets/gbzcombat/animations.json")
+            .getResourceAsStream("assets/gbz/animations.json")
             ?: error("animations.json not found in mod resources")
 
         val config = stream.bufferedReader().use { reader ->
