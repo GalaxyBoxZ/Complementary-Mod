@@ -1,17 +1,111 @@
 {
-  "name": "idle_light",
-  "description": "Light weapon idle stance",
-  "emote": {
-    "isLoop": "true",
-    "returnTick": 0,
-    "beginTick": 0,
-    "endTick": 12,
-    "stopTick": 12,
-    "degrees": false,
-    "moves": [
-      { "tick": 0, "easing": "LINEAR", "torso": { "pitch": 0.0 }, "rightArm": { "pitch": -0.25, "yaw": -0.1 }, "leftArm": { "pitch": -0.15, "yaw": 0.08 } },
-      { "tick": 6, "easing": "EASEINOUTSINE", "torso": { "pitch": 0.03 }, "rightArm": { "pitch": -0.3, "yaw": -0.16 }, "leftArm": { "pitch": -0.21, "yaw": 0.12 } },
-      { "tick": 12, "easing": "EASEINOUTSINE", "torso": { "pitch": 0.0 }, "rightArm": { "pitch": -0.25, "yaw": -0.1 }, "leftArm": { "pitch": -0.15, "yaw": 0.08 } }
-    ]
-  }
+    "name": "idle_light",
+    "author": "Daedelus",
+    "description": "One handed backwards pose",
+    "emote": {
+        "isLoop": "true",
+        "returnTick": 1,
+        "beginTick": 1,
+        "endTick": 2,
+        "stopTick": 11,
+        "degrees": false,
+        "moves": [
+            {
+                "tick": 1,
+                "easing": "EASEINOUTQUAD",
+                "turn": 0,
+                "rightItem": {
+                    "x": 4.510890505571297e-08
+                }
+            },
+            {
+                "tick": 10,
+                "easing": "EASEINOUTQUAD",
+                "turn": 0,
+                "rightItem": {
+                    "x": 4.510890505571297e-08
+                }
+            },
+            {
+                "tick": 1,
+                "easing": "EASEINOUTQUAD",
+                "turn": 0,
+                "rightItem": {
+                    "z": 2.5879178047180176
+                }
+            },
+            {
+                "tick": 10,
+                "easing": "EASEINOUTQUAD",
+                "turn": 0,
+                "rightItem": {
+                    "z": 2.5879178047180176
+                }
+            },
+            {
+                "tick": 1,
+                "easing": "EASEINOUTQUAD",
+                "turn": 0,
+                "rightItem": {
+                    "y": -3.4232497215270996
+                }
+            },
+            {
+                "tick": 10,
+                "easing": "EASEINOUTQUAD",
+                "turn": 0,
+                "rightItem": {
+                    "y": -3.4232497215270996
+                }
+            },
+            {
+                "tick": 1,
+                "easing": "EASEINOUTQUAD",
+                "turn": 0,
+                "rightItem": {
+                    "pitch": 3.1415927410125732
+                }
+            },
+            {
+                "tick": 10,
+                "easing": "EASEINOUTQUAD",
+                "turn": 0,
+                "rightItem": {
+                    "pitch": 3.1415927410125732
+                }
+            },
+            {
+                "tick": 1,
+                "easing": "EASEINOUTQUAD",
+                "turn": 0,
+                "rightItem": {
+                    "yaw": 0.0
+                }
+            },
+            {
+                "tick": 10,
+                "easing": "EASEINOUTQUAD",
+                "turn": 0,
+                "rightItem": {
+                    "yaw": 0.0
+                }
+            },
+            {
+                "tick": 1,
+                "easing": "EASEINOUTQUAD",
+                "turn": 0,
+                "rightItem": {
+                    "roll": 0.0
+                }
+            },
+            {
+                "tick": 10,
+                "easing": "EASEINOUTQUAD",
+                "turn": 0,
+                "rightItem": {
+                    "roll": 0.0
+                }
+            }
+        ]
+    }
 }

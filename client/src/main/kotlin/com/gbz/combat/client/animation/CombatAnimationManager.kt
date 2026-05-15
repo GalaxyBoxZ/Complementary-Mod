@@ -47,6 +47,7 @@ class CombatAnimationManager(
         state.modelKey = modelKey
         state.matchedRule = matchedRule
         state.matchPriority = priority
+        state.comboStep = 0
 
         val layers = getLayers(player) ?: return
         val profile = AnimationProfileRegistry.get(resolvedType)
@@ -72,10 +73,13 @@ class CombatAnimationManager(
         state.lastCooldownTicks = vanillaCooldownTicks
         state.lastPlaybackSpeed = playbackSpeed
 
+        val comboIndex = state.comboStep % profile.attackAnimationIds.size
+        state.comboStep = comboIndex + 1
+
         layers.attackSpeed.speed = playbackSpeed
         layers.attack.replaceAnimationWithFade(
             AbstractFadeModifier.standardFadeIn(profile.fadeInTicks.coerceAtLeast(1), Ease.LINEAR),
-            createPlayer(profile.attackAnimationId, profile.showLeftArmInFirstPerson, profile.showLeftItemInFirstPerson) ?: return
+            createPlayer(profile.attackAnimationIds[comboIndex], profile.showLeftArmInFirstPerson, profile.showLeftItemInFirstPerson) ?: return
         )
 
         if (configState.config.debugLogging) {

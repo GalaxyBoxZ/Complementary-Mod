@@ -4,7 +4,7 @@ import net.minecraft.util.Identifier
 
 data class AnimationProfile(
     val type: WeaponAnimationType,
-    val attackAnimationId: Identifier,
+    val attackAnimationIds: List<Identifier>,
     val idleAnimationId: Identifier,
     val nominalAttackTicks: Int,
     val nominalIdleSpeed: Float = 1.0f,

@@ -10,5 +10,6 @@ data class CombatPlayerState(
     var lastAttackSpeed: Float = 4.0f,
     var lastCooldownTicks: Float = 5.0f,
     var lastPlaybackSpeed: Float = 1.0f,
-    var debugOverlayEnabled: Boolean = false
+    var debugOverlayEnabled: Boolean = false,
+    var comboStep: Int = 0
 )

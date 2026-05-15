@@ -1,17 +1,111 @@
 {
-  "name": "idle_sword",
-  "description": "Classic sword mid-guard",
-  "emote": {
-    "isLoop": "true",
-    "returnTick": 0,
-    "beginTick": 0,
-    "endTick": 16,
-    "stopTick": 16,
-    "degrees": false,
-    "moves": [
-      { "tick": 0,  "easing": "LINEAR",       "torso": { "pitch": 0.02, "yaw": -0.04 }, "rightArm": { "pitch": -0.46, "yaw": -0.14 }, "leftArm": { "pitch": -0.22, "yaw": 0.10 } },
-      { "tick": 8,  "easing": "EASEINOUTSINE", "torso": { "pitch": 0.05, "yaw": -0.06 }, "rightArm": { "pitch": -0.52, "yaw": -0.18 }, "leftArm": { "pitch": -0.27, "yaw": 0.13 } },
-      { "tick": 16, "easing": "EASEINOUTSINE", "torso": { "pitch": 0.02, "yaw": -0.04 }, "rightArm": { "pitch": -0.46, "yaw": -0.14 }, "leftArm": { "pitch": -0.22, "yaw": 0.10 } }
-    ]
-  }
+    "name": "idle_sword",
+    "author": "Daedelus",
+    "description": "One handed backwards pose",
+    "emote": {
+        "isLoop": "true",
+        "returnTick": 1,
+        "beginTick": 1,
+        "endTick": 2,
+        "stopTick": 11,
+        "degrees": false,
+        "moves": [
+            {
+                "tick": 1,
+                "easing": "EASEINOUTQUAD",
+                "turn": 0,
+                "rightItem": {
+                    "x": 4.510890505571297e-08
+                }
+            },
+            {
+                "tick": 10,
+                "easing": "EASEINOUTQUAD",
+                "turn": 0,
+                "rightItem": {
+                    "x": 4.510890505571297e-08
+                }
+            },
+            {
+                "tick": 1,
+                "easing": "EASEINOUTQUAD",
+                "turn": 0,
+                "rightItem": {
+                    "z": 2.5879178047180176
+                }
+            },
+            {
+                "tick": 10,
+                "easing": "EASEINOUTQUAD",
+                "turn": 0,
+                "rightItem": {
+                    "z": 2.5879178047180176
+                }
+            },
+            {
+                "tick": 1,
+                "easing": "EASEINOUTQUAD",
+                "turn": 0,
+                "rightItem": {
+                    "y": -3.4232497215270996
+                }
+            },
+            {
+                "tick": 10,
+                "easing": "EASEINOUTQUAD",
+                "turn": 0,
+                "rightItem": {
+                    "y": -3.4232497215270996
+                }
+            },
+            {
+                "tick": 1,
+                "easing": "EASEINOUTQUAD",
+                "turn": 0,
+                "rightItem": {
+                    "pitch": 3.1415927410125732
+                }
+            },
+            {
+                "tick": 10,
+                "easing": "EASEINOUTQUAD",
+                "turn": 0,
+                "rightItem": {
+                    "pitch": 3.1415927410125732
+                }
+            },
+            {
+                "tick": 1,
+                "easing": "EASEINOUTQUAD",
+                "turn": 0,
+                "rightItem": {
+                    "yaw": 0.0
+                }
+            },
+            {
+                "tick": 10,
+                "easing": "EASEINOUTQUAD",
+                "turn": 0,
+                "rightItem": {
+                    "yaw": 0.0
+                }
+            },
+            {
+                "tick": 1,
+                "easing": "EASEINOUTQUAD",
+                "turn": 0,
+                "rightItem": {
+                    "roll": 0.0
+                }
+            },
+            {
+                "tick": 10,
+                "easing": "EASEINOUTQUAD",
+                "turn": 0,
+                "rightItem": {
+                    "roll": 0.0
+                }
+            }
+        ]
+    }
 }
