@@ -1,7 +1,7 @@
-package com.gbz.combat.client.util
+package gbz.complementary.client.util
 
-import com.gbz.combat.client.animation.CombatAnimationManager
-import com.gbz.combat.client.matcher.WeaponAnimationResolver
+import gbz.complementary.client.animation.CombatAnimationManager
+import gbz.complementary.client.matcher.WeaponAnimationResolver
 import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback
 import net.minecraft.client.MinecraftClient
 import net.minecraft.client.gui.DrawContext

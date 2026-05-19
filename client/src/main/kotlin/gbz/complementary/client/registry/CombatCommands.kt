@@ -1,8 +1,8 @@
-package com.gbz.combat.client.registry
+package gbz.complementary.client.registry
 
-import com.gbz.combat.client.animation.CombatAnimationManager
-import com.gbz.combat.client.config.AnimationConfigRepository
-import com.gbz.combat.client.matcher.WeaponAnimationResolver
+import gbz.complementary.client.animation.CombatAnimationManager
+import gbz.complementary.client.config.AnimationConfigRepository
+import gbz.complementary.client.matcher.WeaponAnimationResolver
 import net.fabricmc.fabric.api.client.command.v2.ClientCommandManager.literal
 import net.fabricmc.fabric.api.client.command.v2.ClientCommandRegistrationCallback
 import net.minecraft.text.Text

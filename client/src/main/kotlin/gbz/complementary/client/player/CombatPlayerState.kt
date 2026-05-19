@@ -1,6 +1,6 @@
-package com.gbz.combat.client.player
+package gbz.complementary.client.player
 
-import com.gbz.combat.client.animation.WeaponAnimationType
+import gbz.complementary.client.animation.WeaponAnimationType
 
 data class CombatPlayerState(
     var currentType: WeaponAnimationType = WeaponAnimationType.FIST,

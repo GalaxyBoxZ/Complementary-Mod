@@ -1,8 +1,8 @@
-package com.gbz.combat.client.registry
+package gbz.complementary.client.registry
 
-import com.gbz.combat.client.animation.AnimationProfile
-import com.gbz.combat.client.animation.WeaponAnimationType
-import com.gbz.combat.client.util.GbzCombatConstants.id
+import gbz.complementary.client.animation.AnimationProfile
+import gbz.complementary.client.animation.WeaponAnimationType
+import gbz.complementary.client.util.GbzCombatConstants.id
 
 object AnimationProfileRegistry {
     private val profiles: Map<WeaponAnimationType, AnimationProfile> = mapOf(

@@ -1,4 +1,4 @@
-package com.gbz.combat.client.util
+package gbz.complementary.client.util
 
 import net.minecraft.util.Identifier
 import org.slf4j.Logger

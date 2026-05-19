@@ -1,7 +1,7 @@
-package com.gbz.combat.client.player
+package gbz.complementary.client.player
 
-import com.gbz.combat.client.animation.CombatAnimationManager
-import com.gbz.combat.client.matcher.WeaponAnimationResolver
+import gbz.complementary.client.animation.CombatAnimationManager
+import gbz.complementary.client.matcher.WeaponAnimationResolver
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents
 import net.fabricmc.fabric.api.event.client.player.ClientPreAttackCallback
 

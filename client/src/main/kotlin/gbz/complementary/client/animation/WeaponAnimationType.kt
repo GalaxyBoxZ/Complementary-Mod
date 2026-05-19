@@ -1,4 +1,4 @@
-package com.gbz.combat.client.animation
+package gbz.complementary.client.animation
 
 enum class WeaponAnimationType(
     val id: String,

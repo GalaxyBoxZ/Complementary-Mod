@@ -1,4 +1,4 @@
-package com.gbz.combat.client.player
+package gbz.complementary.client.player
 
 import net.minecraft.component.DataComponentTypes
 import net.minecraft.item.ItemStack

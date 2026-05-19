@@ -1,9 +1,9 @@
-package com.gbz.combat.client.animation
+package gbz.complementary.client.animation
 
-import com.gbz.combat.client.config.ConfigState
-import com.gbz.combat.client.player.CombatPlayerState
-import com.gbz.combat.client.registry.AnimationProfileRegistry
-import com.gbz.combat.client.util.GbzCombatConstants.LOGGER
+import gbz.complementary.client.config.ConfigState
+import gbz.complementary.client.player.CombatPlayerState
+import gbz.complementary.client.registry.AnimationProfileRegistry
+import gbz.complementary.client.util.GbzCombatConstants.LOGGER
 import dev.kosmx.playerAnim.api.firstPerson.FirstPersonConfiguration
 import dev.kosmx.playerAnim.api.firstPerson.FirstPersonMode
 import dev.kosmx.playerAnim.api.layered.IAnimation

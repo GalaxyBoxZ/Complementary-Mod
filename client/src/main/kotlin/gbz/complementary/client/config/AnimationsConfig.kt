@@ -1,6 +1,6 @@
-package com.gbz.combat.client.config
+package gbz.complementary.client.config
 
-import com.gbz.combat.client.animation.WeaponAnimationType
+import gbz.complementary.client.animation.WeaponAnimationType
 
 data class AnimationMappingEntry(
     val match: List<String>,

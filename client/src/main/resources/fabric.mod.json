@@ -13,10 +13,13 @@
     "client": [
       {
         "adapter": "kotlin",
-        "value": "com.gbz.combat.client.GbzCombatClient"
+        "value": "gbz.complementary.client.GBZComplementaryClient"
       }
     ]
   },
+  "mixins": [
+    "gbz.client.mixins.json"
+  ],
   "depends": {
     "fabricloader": ">=0.16.10",
     "minecraft": ">=${minecraft_version} <=1.21.11",

@@ -1,6 +1,6 @@
-package com.gbz.combat.client.config
+package gbz.complementary.client.config
 
-import com.gbz.combat.client.matcher.WeaponAnimationMatcher
+import gbz.complementary.client.matcher.WeaponAnimationMatcher
 import com.google.gson.GsonBuilder
 
 class AnimationConfigRepository {

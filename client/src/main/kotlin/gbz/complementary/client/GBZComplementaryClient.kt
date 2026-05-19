@@ -1,15 +1,16 @@
-package com.gbz.combat.client
+package gbz.complementary.client
 
-import com.gbz.combat.client.animation.CombatAnimationManager
-import com.gbz.combat.client.config.AnimationConfigRepository
-import com.gbz.combat.client.matcher.WeaponAnimationResolver
-import com.gbz.combat.client.player.ClientAttackTracker
-import com.gbz.combat.client.registry.CombatCommands
-import com.gbz.combat.client.util.DebugOverlayRenderer
-import com.gbz.combat.client.util.GbzCombatConstants.LOGGER
+import gbz.complementary.client.animation.CombatAnimationManager
+import gbz.complementary.client.config.AnimationConfigRepository
+import gbz.complementary.client.hud.ItemCooldownHudRenderer
+import gbz.complementary.client.matcher.WeaponAnimationResolver
+import gbz.complementary.client.player.ClientAttackTracker
+import gbz.complementary.client.registry.CombatCommands
+import gbz.complementary.client.util.DebugOverlayRenderer
+import gbz.complementary.client.util.GbzCombatConstants.LOGGER
 import net.fabricmc.api.ClientModInitializer
 
-object GbzCombatClient : ClientModInitializer {
+object GBZComplementaryClient : ClientModInitializer {
     override fun onInitializeClient() {
         val repository = AnimationConfigRepository()
         val initialState = repository.current()
@@ -19,6 +20,7 @@ object GbzCombatClient : ClientModInitializer {
         CombatAnimationManager.registerPlayerLayers()
 
         ClientAttackTracker(resolver, animationManager).register()
+        ItemCooldownHudRenderer.register()
         DebugOverlayRenderer(animationManager, resolver).register()
         CombatCommands(repository, resolver, animationManager).register()
 

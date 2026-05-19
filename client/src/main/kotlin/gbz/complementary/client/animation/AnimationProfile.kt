@@ -1,4 +1,4 @@
-package com.gbz.combat.client.animation
+package gbz.complementary.client.animation
 
 import net.minecraft.util.Identifier
 

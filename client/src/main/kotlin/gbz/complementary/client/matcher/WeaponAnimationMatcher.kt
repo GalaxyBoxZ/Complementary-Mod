@@ -1,7 +1,7 @@
-package com.gbz.combat.client.matcher
+package gbz.complementary.client.matcher
 
-import com.gbz.combat.client.animation.WeaponAnimationType
-import com.gbz.combat.client.config.AnimationsConfig
+import gbz.complementary.client.animation.WeaponAnimationType
+import gbz.complementary.client.config.AnimationsConfig
 
 class WeaponAnimationMatcher private constructor(
     private val defaultType: WeaponAnimationType,

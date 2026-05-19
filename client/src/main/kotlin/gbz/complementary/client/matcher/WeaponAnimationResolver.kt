@@ -1,7 +1,7 @@
-package com.gbz.combat.client.matcher
+package gbz.complementary.client.matcher
 
-import com.gbz.combat.client.animation.WeaponAnimationType
-import com.gbz.combat.client.player.ItemModelResolver
+import gbz.complementary.client.animation.WeaponAnimationType
+import gbz.complementary.client.player.ItemModelResolver
 import net.minecraft.item.ItemStack
 import java.util.concurrent.ConcurrentHashMap
 
