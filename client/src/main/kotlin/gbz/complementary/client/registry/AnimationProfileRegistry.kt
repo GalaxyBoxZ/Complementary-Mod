@@ -2,7 +2,7 @@ package gbz.complementary.client.registry
 
 import gbz.complementary.client.animation.AnimationProfile
 import gbz.complementary.client.animation.WeaponAnimationType
-import gbz.complementary.client.util.GbzCombatConstants.id
+import gbz.complementary.client.util.GBZCombatConstants.id
 
 object AnimationProfileRegistry {
     private val profiles: Map<WeaponAnimationType, AnimationProfile> = mapOf(

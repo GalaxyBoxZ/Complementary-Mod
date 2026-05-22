@@ -2,8 +2,10 @@ package gbz.complementary.client.util
 
 import gbz.complementary.client.animation.CombatAnimationManager
 import gbz.complementary.client.matcher.WeaponAnimationResolver
-import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback
+import net.fabricmc.fabric.api.client.rendering.v1.HudLayerRegistrationCallback
+import net.fabricmc.fabric.api.client.rendering.v1.IdentifiedLayer
 import net.minecraft.client.MinecraftClient
+import net.minecraft.util.Identifier
 import net.minecraft.client.gui.DrawContext
 import net.minecraft.text.Text
 import kotlin.math.roundToInt
@@ -13,8 +15,10 @@ class DebugOverlayRenderer(
     private val resolver: WeaponAnimationResolver
 ) {
     fun register() {
-        HudRenderCallback.EVENT.register { drawContext, _ ->
-            render(drawContext)
+        HudLayerRegistrationCallback.EVENT.register { layeredDrawer ->
+            layeredDrawer.attachLayerAfter(IdentifiedLayer.SUBTITLES, Identifier.of("gbz", "debug_overlay")) { drawContext, _ ->
+                render(drawContext)
+            }
         }
     }
 

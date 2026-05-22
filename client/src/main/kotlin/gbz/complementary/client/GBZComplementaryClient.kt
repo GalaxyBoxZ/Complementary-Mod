@@ -7,7 +7,7 @@ import gbz.complementary.client.matcher.WeaponAnimationResolver
 import gbz.complementary.client.player.ClientAttackTracker
 import gbz.complementary.client.registry.CombatCommands
 import gbz.complementary.client.util.DebugOverlayRenderer
-import gbz.complementary.client.util.GbzCombatConstants.LOGGER
+import gbz.complementary.client.util.GBZCombatConstants.LOGGER
 import net.fabricmc.api.ClientModInitializer
 
 object GBZComplementaryClient : ClientModInitializer {

@@ -3,7 +3,7 @@ package gbz.complementary.client.animation
 import gbz.complementary.client.config.ConfigState
 import gbz.complementary.client.player.CombatPlayerState
 import gbz.complementary.client.registry.AnimationProfileRegistry
-import gbz.complementary.client.util.GbzCombatConstants.LOGGER
+import gbz.complementary.client.util.GBZCombatConstants.LOGGER
 import dev.kosmx.playerAnim.api.firstPerson.FirstPersonConfiguration
 import dev.kosmx.playerAnim.api.firstPerson.FirstPersonMode
 import dev.kosmx.playerAnim.api.layered.IAnimation

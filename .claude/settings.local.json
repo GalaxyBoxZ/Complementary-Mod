@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(./gradlew :client:compileKotlin)",
+      "Bash(\"/c/Program Files/Java/jdk-21.0.10/bin/javap.exe\" -classpath \".gradle/loom-cache/minecraftMaven/net/minecraft/minecraft-merged-39c19028ca/1.21.4-net.fabricmc.yarn.1_21_4.1.21.4+build.8-v2/minecraft-merged-39c19028ca-1.21.4-net.fabricmc.yarn.1_21_4.1.21.4+build.8-v2.jar\" \"net.minecraft.client.gl.ShaderProgramKeys\")"
+    ]
+  }
+}
