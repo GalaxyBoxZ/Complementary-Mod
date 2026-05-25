@@ -1,2 +1,7 @@
-Animations
-Cooldown HUD - instead of a new bar, put the "pizza" overlay on top of the actual item with the time inside the circle
+## Combat Animations
+ - play animations from other players
+ - make it so animations dont "spam"
+ - make new animations or fix/ask for permission to use the better combat/simply swords ones.
+
+## Cooldown
+ - instead of a new bar, put the "pizza" overlay on top of the actual item with the time inside the circle
