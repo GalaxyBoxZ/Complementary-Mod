@@ -2,5 +2,7 @@
   "gbz.command.reload": "Reloaded GBZ config.",
   "gbz.command.debug.on": "GBZ debug overlay enabled.",
   "gbz.command.debug.off": "GBZ debug overlay disabled.",
-  "gbz.command.reload.failed": "Failed to reload GBZ config. Check the log."
+  "gbz.command.reload.failed": "Failed to reload GBZ config. Check the log.",
+  "gbz.command.animations.on": "Combat animations enabled.",
+  "gbz.command.animations.off": "Combat animations disabled."
 }

@@ -32,6 +32,20 @@ class CombatCommands(
                         }
                     )
                     .then(
+                        literal("toggle").executes { context ->
+                            val enabled = !animationManager.animationsEnabled
+                            animationManager.setAnimationsEnabled(enabled)
+                            context.source.sendFeedback(
+                                if (enabled) {
+                                    Text.translatable("gbz.command.animations.on")
+                                } else {
+                                    Text.translatable("gbz.command.animations.off")
+                                }
+                            )
+                            1
+                        }
+                    )
+                    .then(
                         literal("debug").executes { context ->
                             val enabled = !animationManager.currentState().debugOverlayEnabled
                             animationManager.setDebugOverlayEnabled(enabled)

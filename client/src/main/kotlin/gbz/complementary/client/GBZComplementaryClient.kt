@@ -2,7 +2,7 @@ package gbz.complementary.client
 
 import gbz.complementary.client.animation.CombatAnimationManager
 import gbz.complementary.client.config.AnimationConfigRepository
-import gbz.complementary.client.hud.ItemCooldownHudRenderer
+import gbz.complementary.client.hud.ItemCooldownOverlayRenderer
 import gbz.complementary.client.matcher.WeaponAnimationResolver
 import gbz.complementary.client.player.ClientAttackTracker
 import gbz.complementary.client.registry.CombatCommands
@@ -20,7 +20,7 @@ object GBZComplementaryClient : ClientModInitializer {
         CombatAnimationManager.registerPlayerLayers()
 
         ClientAttackTracker(resolver, animationManager).register()
-        ItemCooldownHudRenderer.register()
+        ItemCooldownOverlayRenderer.register()
         DebugOverlayRenderer(animationManager, resolver).register()
         CombatCommands(repository, resolver, animationManager).register()
 

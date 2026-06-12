@@ -10,6 +10,7 @@ import dev.kosmx.playerAnim.api.layered.IAnimation
 import dev.kosmx.playerAnim.api.layered.KeyframeAnimationPlayer
 import dev.kosmx.playerAnim.api.layered.ModifierLayer
 import dev.kosmx.playerAnim.api.layered.modifier.AbstractFadeModifier
+import dev.kosmx.playerAnim.api.layered.modifier.MirrorModifier
 import dev.kosmx.playerAnim.api.layered.modifier.SpeedModifier
 import dev.kosmx.playerAnim.core.data.KeyframeAnimation
 import dev.kosmx.playerAnim.core.util.Ease
@@ -18,6 +19,7 @@ import dev.kosmx.playerAnim.minecraftApi.PlayerAnimationRegistry
 import net.minecraft.client.network.AbstractClientPlayerEntity
 import net.minecraft.client.network.ClientPlayerEntity
 import net.minecraft.entity.attribute.EntityAttributes
+import net.minecraft.util.Arm
 import net.minecraft.item.ItemStack
 import net.minecraft.util.Identifier
 import java.util.UUID
@@ -27,8 +29,21 @@ class CombatAnimationManager(
     private var configState: ConfigState
 ) {
     private val state = CombatPlayerState()
+    private val remoteStates = ConcurrentHashMap<UUID, CombatPlayerState>()
+
+    @Volatile
+    var animationsEnabled = true
+        private set
 
     fun currentState(): CombatPlayerState = state
+
+    private fun stateFor(player: AbstractClientPlayerEntity): CombatPlayerState =
+        if (player is ClientPlayerEntity) state else remoteStates.getOrPut(player.uuid) { CombatPlayerState() }
+
+    fun onPlayerUnload(player: AbstractClientPlayerEntity) {
+        remoteStates.remove(player.uuid)
+        playerLayers.remove(player.uuid)
+    }
 
     fun setDebugOverlayEnabled(enabled: Boolean) {
         state.debugOverlayEnabled = enabled
@@ -38,7 +53,23 @@ class CombatAnimationManager(
         this.configState = configState
     }
 
-    fun ensureIdle(player: ClientPlayerEntity, resolvedType: WeaponAnimationType, modelKey: String, matchedRule: String?, priority: String) {
+    fun setAnimationsEnabled(enabled: Boolean) {
+        if (animationsEnabled == enabled) return
+        animationsEnabled = enabled
+        if (!enabled) {
+            val fadeTicks = configState.config.interpolationTicks.coerceAtLeast(1)
+            playerLayers.values.forEach { it.fadeOut(fadeTicks) }
+            localPlayerLayers?.fadeOut(fadeTicks)
+            // Clear model keys so idle animations are re-applied on re-enable.
+            state.modelKey = ""
+            remoteStates.values.forEach { it.modelKey = "" }
+        }
+    }
+
+    fun ensureIdle(player: AbstractClientPlayerEntity, resolvedType: WeaponAnimationType, modelKey: String, matchedRule: String?, priority: String) {
+        if (!animationsEnabled) return
+        getLayers(player)?.setMirrored(player.mainArm == Arm.LEFT)
+        val state = stateFor(player)
         if (state.currentType == resolvedType && state.modelKey == modelKey) {
             return
         }
@@ -59,8 +90,11 @@ class CombatAnimationManager(
         )
     }
 
-    fun onAttack(player: ClientPlayerEntity, stack: ItemStack, resolvedType: WeaponAnimationType) {
+    fun onAttack(player: AbstractClientPlayerEntity, stack: ItemStack, resolvedType: WeaponAnimationType) {
+        if (!animationsEnabled) return
         val layers = getLayers(player) ?: return
+        layers.setMirrored(player.mainArm == Arm.LEFT)
+        val state = stateFor(player)
         val profile = AnimationProfileRegistry.get(resolvedType)
         val attackSpeed = player.getAttributeValue(EntityAttributes.ATTACK_SPEED).toFloat().coerceAtLeast(0.1f)
         val vanillaCooldownTicks = 20.0f / attackSpeed
@@ -125,14 +159,18 @@ class CombatAnimationManager(
                     val attackLayer = ModifierLayer<IAnimation>()
                     val idleSpeed = SpeedModifier(1.0f)
                     val attackSpeed = SpeedModifier(1.0f)
+                    val idleMirror = MirrorModifier(false)
+                    val attackMirror = MirrorModifier(false)
 
                     idleLayer.addModifierBefore(idleSpeed)
                     attackLayer.addModifierBefore(attackSpeed)
+                    idleLayer.addModifierBefore(idleMirror)
+                    attackLayer.addModifierBefore(attackMirror)
 
                     animationStack.addAnimLayer(60, idleLayer)
                     animationStack.addAnimLayer(80, attackLayer)
 
-                    val layers = PlayerLayers(idleLayer, attackLayer, idleSpeed, attackSpeed)
+                    val layers = PlayerLayers(idleLayer, attackLayer, idleSpeed, attackSpeed, idleMirror, attackMirror)
                     playerLayers[player.uuid] = layers
                     if (player is ClientPlayerEntity) localPlayerLayers = layers
                 } catch (e: Exception) {
@@ -147,5 +185,17 @@ data class PlayerLayers(
     val idle: ModifierLayer<IAnimation>,
     val attack: ModifierLayer<IAnimation>,
     val idleSpeed: SpeedModifier,
-    val attackSpeed: SpeedModifier
-)
+    val attackSpeed: SpeedModifier,
+    val idleMirror: MirrorModifier,
+    val attackMirror: MirrorModifier
+) {
+    fun setMirrored(mirrored: Boolean) {
+        idleMirror.isEnabled = mirrored
+        attackMirror.isEnabled = mirrored
+    }
+
+    fun fadeOut(fadeTicks: Int) {
+        idle.replaceAnimationWithFade(AbstractFadeModifier.standardFadeIn(fadeTicks, Ease.LINEAR), null)
+        attack.replaceAnimationWithFade(AbstractFadeModifier.standardFadeIn(fadeTicks, Ease.LINEAR), null)
+    }
+}
